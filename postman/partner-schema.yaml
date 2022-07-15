@@ -154,7 +154,7 @@ paths:
                       $ref: '#/components/schemas/Board'
   /mappings/boards/{uniqueId}: 
     put:
-      summary: get sub boards of metanium room
+      summary: Update board mapping unique id to board
       parameters:
         - name: uniqueId
           in: path
