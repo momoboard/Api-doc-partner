@@ -18,7 +18,7 @@ paths:
          $ref: '#/components/requestBodies/User'       
       responses:
         '201':
-          description: OK
+          description: Created
           content:
             application/json:
               schema:
@@ -36,7 +36,7 @@ paths:
          $ref: '#/components/requestBodies/Board'       
       responses:
         '201':
-          description: OK
+          description: Created
           content:
             application/json:
               schema:
@@ -48,7 +48,7 @@ paths:
                 category: Arts_Entertainment
   /boards/{uniqueId}:
     put: 
-      summary: Create sub board of metanium room
+      summary: Update board information
       parameters:
         - name: uniqueId
           in: path
@@ -57,7 +57,10 @@ paths:
           schema:
             type: string
       requestBody: 
-         $ref: '#/components/requestBodies/Board'       
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Board'
       responses:
         '200':
           description: OK
@@ -71,7 +74,7 @@ paths:
                 description: connect metanium room
                 category: Arts_Entertainment
     delete:
-      summary: get sub boards of metanium room
+      summary: Delete board 
       parameters:
         - name: uniqueId
           in: path
@@ -82,15 +85,6 @@ paths:
       responses:
         '200':
           description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  list: 
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Board'              
   /boards/{uniqueId}/boards:
     post: 
       summary: Create sub board of metanium room
@@ -115,27 +109,6 @@ paths:
                 name: Metanium room
                 description: connect metanium room
                 category: Arts_Entertainment
-    get:
-      summary: get sub boards of metanium room
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room 
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  list: 
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Board'
   /boards/{uniqueId}/chats:
     post: 
       summary: Create chat of metanium room 
@@ -149,18 +122,24 @@ paths:
       responses:
         '201':
           description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  list: 
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Board'
   /mappings/boards:
     get:
-      summary: get sub boards of metanium room
+      summary: get all boards of metanium room by page
+      parameters:
+        - name: offset
+          in: query
+          description: The number of items to skip before starting to collect the result set
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: limit
+          in: query    
+          description: The numbers of items to return
+          schema:
+            type: integer
+            maximum: 100
+            default: 50
       responses:
         '200':
           description: OK
@@ -197,7 +176,22 @@ paths:
                       $ref: '#/components/schemas/Board'                  
   /mappings/users:
     get:
-      summary: get sub boards of metanium room
+      summary: get all users by page
+      parameters:
+        - name: offset
+          in: query
+          description: The number of items to skip before starting to collect the result set
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: limit
+          in: query    
+          description: The numbers of items to return
+          schema:
+            type: integer
+            maximum: 100
+            default: 50
       responses:
         '200':
           description: OK
@@ -212,7 +206,9 @@ paths:
                       $ref: '#/components/schemas/Board'  
   /embed/connect:
     get:
-      summary: get sub boards of metanium room
+      summary: Connect User
+      description: >
+        Connect user to momoboard, join the board when first time landing on the board. return iframe url to render
       parameters:
         - name: boardUniqueId
           in: query
@@ -239,11 +235,11 @@ paths:
                     format: url
   /embed/users:
     get:
-      summary: get sub boards of metanium room
+      summary: check user if in the room
       parameters:
         - name: uniqueId
           in: query
-          description: unqiue id of metanium room 
+          description: unqiue id of user
           required: true
           schema:
             type: string
@@ -269,7 +265,7 @@ components:
             properties: 
               boardUniqueId:
                 type: string
-                description: metanium room unique id
+                description: board name 
               name:
                 type: string
                 description: board name 
@@ -356,6 +352,21 @@ components:
           type: string
         userUniqueId:
           type: string
-          description: unique id of metanium user      
+          description: unique id of metanium user  
+        email:
+          type: string  
+          format: email
+        nickname:
+          type: string
+        firstname:
+          type: string
+        lastname: 
+          type: string
+        profileImageUrl: 
+          type: string
+          format: url
+        backgroundImageUrl:
+          type: string
+          format: url
 security:
   - ApiKeyAuth: []
