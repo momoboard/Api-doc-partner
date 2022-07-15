@@ -1,0 +1,361 @@
+openapi: '3.0.2'
+info:
+  title: Metanium Partner API
+  version: '0.0.1'
+servers:
+  - url: https://{environment}.momoboard.com/partners
+    variables:
+      environment:
+        default: partner-api    # Production server
+        enum:
+          - partner-api         # Production server
+          - dev-partner-api
+paths:
+  /users:
+    post: 
+      summary: Create User 
+      requestBody: 
+         $ref: '#/components/requestBodies/User'       
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'      
+  /boards:
+    post: 
+      summary: Create Board
+      requestBody: 
+         $ref: '#/components/requestBodies/Board'       
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Board'  
+              example: 
+                boardUniqueId: 1234
+                name: Metanium room
+                description: connect metanium room
+                category: Arts_Entertainment
+  /boards/{uniqueId}:
+    put: 
+      summary: Create sub board of metanium room
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room 
+          required: true
+          schema:
+            type: string
+      requestBody: 
+         $ref: '#/components/requestBodies/Board'       
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Board'  
+              example: 
+                boardUniqueId: 1234
+                name: Metanium room
+                description: connect metanium room
+                category: Arts_Entertainment
+    delete:
+      summary: get sub boards of metanium room
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room 
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list: 
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Board'              
+  /boards/{uniqueId}/boards:
+    post: 
+      summary: Create sub board of metanium room
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room 
+          required: true
+          schema:
+            type: string
+      requestBody: 
+         $ref: '#/components/requestBodies/Board'       
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Board'  
+              example: 
+                boardUniqueId: 1234
+                name: Metanium room
+                description: connect metanium room
+                category: Arts_Entertainment
+    get:
+      summary: get sub boards of metanium room
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room 
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list: 
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Board'
+  /boards/{uniqueId}/chats:
+    post: 
+      summary: Create chat of metanium room 
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room 
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list: 
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Board'
+  /mappings/boards:
+    get:
+      summary: get sub boards of metanium room
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list: 
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Board'
+  /mappings/boards/{uniqueId}: 
+    put:
+      summary: get sub boards of metanium room
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room 
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list: 
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Board'                  
+  /mappings/users:
+    get:
+      summary: get sub boards of metanium room
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list: 
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Board'  
+  /embed/connect:
+    get:
+      summary: get sub boards of metanium room
+      parameters:
+        - name: boardUniqueId
+          in: query
+          description: unqiue id of metanium room 
+          required: true
+          schema:
+            type: string
+        - name: userUniqueId
+          in: query
+          description: unqiue id of user 
+          required: true
+          schema:
+            type: string    
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  momoUrl: 
+                    type: string
+                    format: url
+  /embed/users:
+    get:
+      summary: get sub boards of metanium room
+      parameters:
+        - name: uniqueId
+          in: query
+          description: unqiue id of metanium room 
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: NOT FOUND
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  requestBodies: 
+    Board:
+      description: A JSON object containing board information
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: 
+              boardUniqueId:
+                type: string
+                description: metanium room unique id
+              name:
+                type: string
+                description: board name 
+              description:
+                type: string
+              category: 
+                type: string
+                enum: [Arts_Entertainment, Business_Finance, Company_Organization, Computers_Internet, Education_Universities, Family_Parenting, Fashion_Beauty, Food_Beverage, Games_Animations, Health_Wellness, Hobby_Crafts, Local_Life, Pets_Wild_Animals, Professional_Specialist, Religion_Faith, Science_Technology, Social_Cultural, Sports_Recreation, Travel_Leisure]
+              profileImageUrl: 
+                type: string
+                format: url
+              backgroundImageUrl:
+                type: string
+                format: url
+            required:
+              - boardUniqueId
+              - name
+              - category
+              - description
+            example: 
+              boardUniqueId: 1234
+              name: Metanium room
+              description: connect metanium room
+              category: Arts_Entertainment
+    Chat:
+      description: A JSON object containing chat information
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: 
+              chatUniqueId:
+                type: string
+                description: metanium room unique id
+              userUniqueId: 
+                type: string
+    User:   
+      description: A JSON object containing user information
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: 
+              userUniqueId:
+                type: string
+                description: metanium room unique id
+              email:
+                type: string  
+                format: email
+              nickname:
+                type: string
+              firstname:
+                type: string
+              lastname: 
+                type: string
+              profileImageUrl: 
+                type: string
+                format: url
+              backgroundImageUrl:
+                type: string
+                format: url
+            required:
+              - userUniqueId
+              - email
+              - nickname
+              - firstname
+              - lastname    
+  schemas:
+    Board:
+      type: object
+      properties:
+        id:
+          type: string
+          description: momo board board id
+        boardUniqueId:
+          type: string
+          description: unique id of metanium room
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        userUniqueId:
+          type: string
+          description: unique id of metanium user      
+security:
+  - ApiKeyAuth: []
