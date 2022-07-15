@@ -1,0 +1,1196 @@
+{
+	"info": {
+		"_postman_id": "e3499f51-6d32-46f3-b08e-4c114428e82b",
+		"name": "Partner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "boards",
+			"item": [
+				{
+					"name": "{unique Id}",
+					"item": [
+						{
+							"name": "Update board information",
+							"id": "87078df4-81b9-47e0-ae47-25b30742d817",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"aliquip ea labore\",\n  \"boardUniqueId\": \"cupidatat sed\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/boards/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"id": "22133755-e3a9-4edd-b997-5b125ce1e422",
+											"key": "uniqueId",
+											"value": "ipsum enim dolore id",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"id": "a5a16631-62c0-4556-8663-1b93309eefda",
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "aae794f1-70ad-463e-a594-e8033e264293",
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"aliquip ea labore\",\n  \"boardUniqueId\": \"cupidatat sed\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/boards/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"boards",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "ipsum enim dolore id",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"boardUniqueId\": 1234,\n  \"name\": \"Metanium room\",\n  \"description\": \"connect metanium room\",\n  \"category\": \"Arts_Entertainment\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete board",
+							"id": "f8fcc142-74ed-4a6c-957e-1e6648f58aff",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/boards/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"id": "de390cda-10f6-4349-9985-8fb5427a8637",
+											"key": "uniqueId",
+											"value": "ipsum enim dolore id",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"id": "107d723a-5a1d-4022-bfdc-e39083425a66",
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "adc7732b-57b5-4c12-95d1-1528e4aae7d0",
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/boards/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"boards",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "ipsum enim dolore id",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Create sub board of metanium room",
+							"id": "bee568c4-5e0f-46c9-895c-a6a6d921bdec",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"boardUniqueId\": \"exer\",\n  \"name\": \"nisi commodo in ex\",\n  \"category\": \"Family_Parenting\",\n  \"description\": \"eu\",\n  \"profileImageUrl\": \"cillum in esse deserunt\",\n  \"backgroundImageUrl\": \"amet commodo pariatur eu\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/boards/:uniqueId/boards",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards",
+										":uniqueId",
+										"boards"
+									],
+									"variable": [
+										{
+											"id": "96f6dcc0-390f-41f5-9b13-390a536afa7b",
+											"key": "uniqueId",
+											"value": "ipsum enim dolore id",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"id": "adba17a2-173c-4557-b1ac-c4214949f71f",
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cefc9caa-d8f7-47fd-959a-63e5e8290ae2",
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/boards/:uniqueId/boards",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"boards",
+												":uniqueId",
+												"boards"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "ipsum enim dolore id",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"boardUniqueId\": 1234,\n  \"name\": \"Metanium room\",\n  \"description\": \"connect metanium room\",\n  \"category\": \"Arts_Entertainment\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create chat of metanium room",
+							"id": "57b13c06-6f55-44eb-ac97-8d5128bec322",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/boards/:uniqueId/chats",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards",
+										":uniqueId",
+										"chats"
+									],
+									"variable": [
+										{
+											"id": "e5836529-f946-4272-902a-7e823ddc1f10",
+											"key": "uniqueId",
+											"value": "ipsum enim dolore id",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"id": "a715f726-19d4-4e24-ae08-76f4a87df7be",
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "f5eeff11-134c-43e6-8e7e-ab2c94256d15",
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/boards/:uniqueId/chats",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"boards",
+												":uniqueId",
+												"chats"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "ipsum enim dolore id",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "0dc4859d-4bf3-468f-b77f-58fa79aa7a5b"
+				},
+				{
+					"name": "Create Board",
+					"id": "5532b097-f143-48a7-94e3-b412173c8950",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"boardUniqueId\": \"exer\",\n  \"name\": \"nisi commodo in ex\",\n  \"category\": \"Family_Parenting\",\n  \"description\": \"eu\",\n  \"profileImageUrl\": \"cillum in esse deserunt\",\n  \"backgroundImageUrl\": \"amet commodo pariatur eu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/boards",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"boards"
+							],
+							"variable": [
+								{
+									"id": "349ad9d9-f5fe-427c-bc85-295fc9de7d85",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "2326bc2a-cc7e-4a3b-a2e8-03f00041076e",
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "X-API-Key",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/boards",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards"
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"boardUniqueId\": 1234,\n  \"name\": \"Metanium room\",\n  \"description\": \"connect metanium room\",\n  \"category\": \"Arts_Entertainment\"\n}"
+						}
+					]
+				}
+			],
+			"id": "69b97130-2ee2-479a-831e-1bc1ec7eecbb"
+		},
+		{
+			"name": "mappings",
+			"item": [
+				{
+					"name": "boards",
+					"item": [
+						{
+							"name": "get all boards of metanium room by page",
+							"id": "88ca05dc-a800-4b35-8f83-1ff7a2299639",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/mappings/boards?offset=0&limit=50",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mappings",
+										"boards"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "The number of items to skip before starting to collect the result set"
+										},
+										{
+											"key": "limit",
+											"value": "50",
+											"description": "The numbers of items to return"
+										}
+									],
+									"variable": [
+										{
+											"id": "d4a476ca-0373-480f-98b6-313e32e8b10f",
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "41e7eb15-675d-4a54-833d-3fee27e70461",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mappings/boards?offset=0&limit=50",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mappings",
+												"boards"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "limit",
+													"value": "50"
+												}
+											],
+											"variable": [
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"list\": [\n    {\n      \"id\": \"magna pariatur anim\",\n      \"boardUniqueId\": \"cillum ex officia est\"\n    },\n    {\n      \"id\": \"Duis Lorem\",\n      \"boardUniqueId\": \"nulla sint pariatur minim in\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "get sub boards of metanium room",
+							"id": "8aba555f-7e4f-42c2-b7c5-f4de7eaa74fc",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/mappings/boards/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mappings",
+										"boards",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"id": "dab450ac-eb7f-4e48-a48b-37e69017d756",
+											"key": "uniqueId",
+											"value": "ipsum enim dolore id",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"id": "2b57ebcb-53f8-47cd-9062-9883a16f18fd",
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "f545342b-c1db-484e-9d46-c880c70aad0c",
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mappings/boards/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mappings",
+												"boards",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "ipsum enim dolore id",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"list\": [\n    {\n      \"id\": \"magna pariatur anim\",\n      \"boardUniqueId\": \"cillum ex officia est\"\n    },\n    {\n      \"id\": \"Duis Lorem\",\n      \"boardUniqueId\": \"nulla sint pariatur minim in\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					],
+					"id": "e0706fa5-489e-4de6-8c13-0e6a53db6b09"
+				},
+				{
+					"name": "get all users by page",
+					"id": "4748de1d-32d6-4b23-8df4-0e82e4366a62",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/mappings/users?offset=0&limit=50",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"mappings",
+								"users"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "The number of items to skip before starting to collect the result set"
+								},
+								{
+									"key": "limit",
+									"value": "50",
+									"description": "The numbers of items to return"
+								}
+							],
+							"variable": [
+								{
+									"id": "1e110645-a1c1-459c-9ef9-2ac0c2a93ecc",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c19f546b-29a7-48ab-95ab-1495f93d2005",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "X-API-Key",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/mappings/users?offset=0&limit=50",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mappings",
+										"users"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "50"
+										}
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"list\": [\n    {\n      \"id\": \"magna pariatur anim\",\n      \"boardUniqueId\": \"cillum ex officia est\"\n    },\n    {\n      \"id\": \"Duis Lorem\",\n      \"boardUniqueId\": \"nulla sint pariatur minim in\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			],
+			"id": "c242cc9c-5292-42bb-8eea-6b1d3bf2eb3c"
+		},
+		{
+			"name": "embed",
+			"item": [
+				{
+					"name": "Connect User",
+					"id": "e106f067-e2e5-4651-a9cf-dc523270bf16",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/embed/connect?boardUniqueId=ipsum enim dolore id&userUniqueId=ipsum enim dolore id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embed",
+								"connect"
+							],
+							"query": [
+								{
+									"key": "boardUniqueId",
+									"value": "ipsum enim dolore id",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"key": "userUniqueId",
+									"value": "ipsum enim dolore id",
+									"description": "(Required) unqiue id of user"
+								}
+							],
+							"variable": [
+								{
+									"id": "5da2f415-c369-4d4d-996f-5fb1a42fcdb4",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						},
+						"description": "Connect user to momoboard, join the board when first time landing on the board. return iframe url to render\n"
+					},
+					"response": [
+						{
+							"id": "5c520e1c-9c5e-43b2-aaa9-0738a5cfcee5",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "X-API-Key",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/embed/connect?boardUniqueId=ipsum enim dolore id&userUniqueId=ipsum enim dolore id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"embed",
+										"connect"
+									],
+									"query": [
+										{
+											"key": "boardUniqueId",
+											"value": "ipsum enim dolore id"
+										},
+										{
+											"key": "userUniqueId",
+											"value": "ipsum enim dolore id"
+										}
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"momoUrl\": \"ex sint\"\n}"
+						}
+					]
+				},
+				{
+					"name": "check user if in the room",
+					"id": "808f9468-561c-4732-9a85-c7379ad6e9bc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/embed/users?uniqueId=ipsum enim dolore id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embed",
+								"users"
+							],
+							"query": [
+								{
+									"key": "uniqueId",
+									"value": "ipsum enim dolore id",
+									"description": "(Required) unqiue id of user"
+								}
+							],
+							"variable": [
+								{
+									"id": "a230e797-356d-4e6b-a21c-eafbf6c075e8",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "377dd4c5-7baa-490e-9085-32a3e31bc923",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "X-API-Key",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/embed/users?uniqueId=ipsum enim dolore id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"embed",
+										"users"
+									],
+									"query": [
+										{
+											"key": "uniqueId",
+											"value": "ipsum enim dolore id"
+										}
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "7afcf326-b517-433f-941e-4af3256acfba",
+							"name": "NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "X-API-Key",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/embed/users?uniqueId=ipsum enim dolore id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"embed",
+										"users"
+									],
+									"query": [
+										{
+											"key": "uniqueId",
+											"value": "ipsum enim dolore id"
+										}
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "a0baba9e-2680-40f8-adaa-7a4562f67c6f"
+		},
+		{
+			"name": "Create User or retrieve user",
+			"id": "5535b291-5b19-430f-b346-137c08430e10",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userUniqueId\": \"et ullamco proident\",\n  \"email\": \"609@CtrsdGxwQQUwZOVCaszbiaWJIKKsBVO.fnt\",\n  \"nickname\": \"in proident ut dolore\",\n  \"firstname\": \"sunt consequ\",\n  \"lastname\": \"pariatur nostrud laborum cupidatat\",\n  \"profileImageUrl\": \"Duis dolore\",\n  \"backgroundImageUrl\": \"id\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users"
+					],
+					"variable": [
+						{
+							"id": "061475af-e058-43f5-9cf8-a60bb2aab83d",
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "a3ec2cfa-11e3-4494-bc26-085d1e568af9",
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-API-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"variable": [
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"id\": \"esse nisi reprehenderit\",\n  \"userUniqueId\": \"amet\",\n  \"email\": \"j0AQeBxMcHiC@pGcBsOtFLj.jc\",\n  \"nickname\": \"ipsum\",\n  \"firstname\": \"incididunt laborum elit eu\",\n  \"lastname\": \"dolor Ut\",\n  \"profileImageUrl\": \"aute Duis mollit\",\n  \"backgroundImageUrl\": \"commodo proident in\"\n}"
+				},
+				{
+					"id": "14dae4db-2fae-4737-9c13-7f349e467ac0",
+					"name": "Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-API-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"variable": [
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"id\": \"esse nisi reprehenderit\",\n  \"userUniqueId\": \"amet\",\n  \"email\": \"j0AQeBxMcHiC@pGcBsOtFLj.jc\",\n  \"nickname\": \"ipsum\",\n  \"firstname\": \"incididunt laborum elit eu\",\n  \"lastname\": \"dolor Ut\",\n  \"profileImageUrl\": \"aute Duis mollit\",\n  \"backgroundImageUrl\": \"commodo proident in\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "<API Key>",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "f2e6e100-0913-424c-a0ee-c53f4fece15b",
+			"key": "environment",
+			"value": "partner-api",
+			"type": "any",
+			"description": " (This can only be one of partner-api,dev-partner-api)"
+		},
+		{
+			"id": "5e37b31f-f853-4c2d-a384-6165e600e3bb",
+			"key": "baseUrl",
+			"value": "https://{{environment}}.momoboard.com/partners",
+			"type": "string"
+		}
+	]
+}
