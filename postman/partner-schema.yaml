@@ -13,7 +13,8 @@ servers:
 paths:
   /users:
     post: 
-      summary: Create User or retrieve user 
+      summary: Create User or retrieve user
+      description: 파트너 사용자와 모모보드의 사용자를 매칭하기 위함 API입니다. 모모보드에 가입되어 있지 않은 사용자의 경우 모모보드에 가입을 시킨 후 파트너의 `userUniqueI`와 매핑을 시킵니다. 이미 모모보드에 가입 되어 있는 email일 경우 기존 모모보드 사용자와 매핑을 합니다.
       requestBody: 
          $ref: '#/components/requestBodies/User'       
       responses:
