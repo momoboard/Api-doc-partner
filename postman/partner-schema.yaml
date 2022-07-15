@@ -1,7 +1,7 @@
 openapi: '3.0.2'
 info:
   title: Metanium Partner API
-  version: '0.0.1'
+  version: '0.0.2'
 servers:
   - url: https://{environment}.momoboard.com/partners
     variables:
