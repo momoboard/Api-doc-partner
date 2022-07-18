@@ -23,7 +23,7 @@
     "/users": {
       "post": {
         "summary": "Create User or retrieve user",
-        "description": "파트너 사용자와 모모보드의 사용자를 맵핑하기 위함 API입니다. \n모모보드에 가입되어 있지 않은 사용자의 경우 모모보드에 가입을 시킨 후 파트너의 userUniqueId와 매핑을 시킵니다. \n이미 모모보드에 가입 되어 있는 email일 경우 기존 모모보드 사용자와 매핑을 합니다.",
+        "description": "파트너 사용자와 모모보드의 사용자를 맵핑하기 위한 API입니다. \n\n모모보드에 가입되어 있지 않은 사용자의 경우 모모보드에 가입을 시킨 후 파트너의 userUniqueId와 매핑을 시킵니다. \n\n이미 모모보드에 가입 되어 있는 email일 경우 기존 모모보드 사용자와 매핑을 합니다.",
         "requestBody": {
           "description": "A JSON object containing user information",
           "required": true,
@@ -156,7 +156,7 @@
     "/boards": {
       "post": {
         "summary": "Create Board",
-        "description": "모모보드에 새로운 메인보드를 생성합니다.메타리움의 새로운 고객이 추가 될때 사용합니다.boardUniqueId와 모모보드의 보드를 매핑합니다.(ex 현대퓨처넷의 경우 boardUniqueId가 현대 퓨처넷의 uniqueKey입니다.)",
+        "description": "모모보드에 새로운 메인보드를 생성합니다. \n\n메타리움의 새로운 고객이 추가 될때 사용합니다. \n\n uniqueId와 모모보드의 보드를 매핑합니다.",
         "requestBody": {
           "description": "A JSON object containing board information",
           "required": true,
@@ -341,7 +341,7 @@
     "/boards/{uniqueId}/boards": {
       "post": {
         "summary": "Create sub board of metanium room",
-        "description": "모모보드에 서브 보드를 만듭니다. 메타리움에서 새로운 게시판 형태의 Room이 추가 될때 요청합니다.",
+        "description": "모모보드에 서브 보드를 만듭니다. \n\n메타리움에서 새로운 게시판 형태의 Room이 추가 될때 요청합니다.",
         "parameters": [
           {
             "name": "uniqueId",
@@ -454,7 +454,7 @@
     "/boards/{uniqueId}/chats": {
       "post": {
         "summary": "Create chat of metanium room",
-        "description": "모모보드에 그룹 채팅방을 만듭니다. 메타리움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다.",
+        "description": "모모보드에 그룹 채팅방을 만듭니다. \n\n메타리움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다.",
         "parameters": [
           {
             "name": "uniqueId",
