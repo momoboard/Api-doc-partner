@@ -1,138 +1,11 @@
 {
 	"info": {
-		"_postman_id": "e3499f51-6d32-46f3-b08e-4c114428e82b",
-		"name": "Partner",
-		"description": "모모보드와 파트너와의 API연동을 위한 문서입니다.",
+		"_postman_id": "d714afea-937d-41a1-b116-6db03339310a",
+		"name": "Metanium Partner API",
+		"description": "모모보드와 메타리움간의 API연동을 위한 문서입니다.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "users",
-			"item": [
-				{
-					"name": "Create User or retrieve user",
-					"id": "5535b291-5b19-430f-b346-137c08430e10",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/users",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"users"
-							],
-							"variable": [
-								{
-									"key": "environment",
-									"value": "{{environment}}",
-									"description": " (This can only be one of partner-api,dev-partner-api)"
-								}
-							]
-						},
-						"description": "파트너 사용자와 모모보드의 사용자를 매칭하기 위함 API입니다. 모모보드에 가입되어 있지 않은 사용자의 경우 모모보드에 가입을 시킨 후 파트너의 `userUniqueI`와 매핑을 시킵니다. 이미 모모보드에 가입 되어 있는 email일 경우 기존 모모보드 사용자와 매핑을 합니다."
-					},
-					"response": [
-						{
-							"id": "a3ec2cfa-11e3-4494-bc26-085d1e568af9",
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: apikey",
-										"key": "X-API-Key",
-										"value": "<API Key>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/users",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"users"
-									],
-									"variable": [
-										{
-											"key": "environment",
-											"value": "{{environment}}",
-											"description": " (This can only be one of partner-api,dev-partner-api)"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": null,
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n  \"id\": \"esse nisi reprehenderit\",\n  \"userUniqueId\": \"amet\",\n  \"email\": \"j0AQeBxMcHiC@pGcBsOtFLj.jc\",\n  \"nickname\": \"ipsum\",\n  \"firstname\": \"incididunt laborum elit eu\",\n  \"lastname\": \"dolor Ut\",\n  \"profileImageUrl\": \"aute Duis mollit\",\n  \"backgroundImageUrl\": \"commodo proident in\"\n}"
-						},
-						{
-							"id": "14dae4db-2fae-4737-9c13-7f349e467ac0",
-							"name": "Created",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: apikey",
-										"key": "X-API-Key",
-										"value": "<API Key>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/users",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"users"
-									],
-									"variable": [
-										{
-											"key": "environment",
-											"value": "{{environment}}",
-											"description": " (This can only be one of partner-api,dev-partner-api)"
-										}
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n  \"id\": \"esse nisi reprehenderit\",\n  \"userUniqueId\": \"amet\",\n  \"email\": \"j0AQeBxMcHiC@pGcBsOtFLj.jc\",\n  \"nickname\": \"ipsum\",\n  \"firstname\": \"incididunt laborum elit eu\",\n  \"lastname\": \"dolor Ut\",\n  \"profileImageUrl\": \"aute Duis mollit\",\n  \"backgroundImageUrl\": \"commodo proident in\"\n}"
-						}
-					],
-					"variable": [
-						{
-							"id": "01b51a92-a4eb-4a18-8518-bc58407b2913",
-							"key": "environment",
-							"value": "{{environment}}",
-							"description": " (This can only be one of partner-api,dev-partner-api)"
-						}
-					]
-				}
-			],
-			"id": "67d5089c-3f68-4342-9a49-d620049282fe"
-		},
 		{
 			"name": "boards",
 			"item": [
@@ -141,7 +14,7 @@
 					"item": [
 						{
 							"name": "Update board information",
-							"id": "87078df4-81b9-47e0-ae47-25b30742d817",
+							"id": "3aab9026-ba72-4df6-9447-a47caf42f263",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -159,7 +32,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"aliquip ea labore\",\n  \"boardUniqueId\": \"cupidatat sed\"\n}",
+									"raw": "{\n  \"id\": \"amet labo\",\n  \"boardUniqueId\": \"ipsum occaecat\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -177,22 +50,23 @@
 									],
 									"variable": [
 										{
+											"id": "6d4c0cb3-cd29-42bb-a84c-f2bddc76e555",
 											"key": "uniqueId",
-											"value": "ipsum enim dolore id",
+											"value": "irure dolore officia fugiat tempor",
 											"description": "(Required) unqiue id of metanium room"
 										},
 										{
+											"id": "fad4f9ab-be3e-4a3f-be31-f5281814d4c1",
 											"key": "environment",
 											"value": "{{environment}}",
 											"description": " (This can only be one of partner-api,dev-partner-api)"
 										}
 									]
-								},
-								"description": "보드를 수정합니다."
+								}
 							},
 							"response": [
 								{
-									"id": "aae794f1-70ad-463e-a594-e8033e264293",
+									"id": "34bca196-0a17-44e5-a57c-c4bc39986928",
 									"name": "OK",
 									"originalRequest": {
 										"method": "PUT",
@@ -205,7 +79,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": \"aliquip ea labore\",\n  \"boardUniqueId\": \"cupidatat sed\"\n}",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -224,7 +98,7 @@
 											"variable": [
 												{
 													"key": "uniqueId",
-													"value": "ipsum enim dolore id",
+													"value": "irure dolore officia fugiat tempor",
 													"description": "(Required) unqiue id of metanium room"
 												},
 												{
@@ -238,16 +112,21 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "json",
-									"header": [],
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n \"boardUniqueId\": \"mollit id qui\",\n \"name\": \"Metanium room\",\n \"description\": \"connect metanium room\",\n \"category\": \"Arts_Entertainment\"\n}"
+									"body": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}"
 								}
 							]
 						},
 						{
 							"name": "Delete board",
-							"id": "f8fcc142-74ed-4a6c-957e-1e6648f58aff",
+							"id": "8b497d9e-4260-4482-9303-aa00d37e9931",
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -262,11 +141,13 @@
 									],
 									"variable": [
 										{
+											"id": "6c3d02eb-b737-4621-bba7-776994e6dc22",
 											"key": "uniqueId",
-											"value": "ipsum enim dolore id",
+											"value": "irure dolore officia fugiat tempor",
 											"description": "(Required) unqiue id of metanium room"
 										},
 										{
+											"id": "4288409b-7c1d-4427-a6da-c4b90b264d04",
 											"key": "environment",
 											"value": "{{environment}}",
 											"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -277,7 +158,7 @@
 							},
 							"response": [
 								{
-									"id": "adc7732b-57b5-4c12-95d1-1528e4aae7d0",
+									"id": "22f0c711-ae97-4bde-909b-2894a4f585b6",
 									"name": "OK",
 									"originalRequest": {
 										"method": "DELETE",
@@ -300,7 +181,7 @@
 											"variable": [
 												{
 													"key": "uniqueId",
-													"value": "ipsum enim dolore id",
+													"value": "irure dolore officia fugiat tempor",
 													"description": "(Required) unqiue id of metanium room"
 												},
 												{
@@ -314,7 +195,12 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "text",
-									"header": [],
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
 									"body": ""
@@ -323,7 +209,7 @@
 						},
 						{
 							"name": "Create sub board of metanium room",
-							"id": "bee568c4-5e0f-46c9-895c-a6a6d921bdec",
+							"id": "704ad60f-d0c0-4f9d-ac76-ecc65197e9d2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -341,7 +227,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"boardUniqueId\": \"exer\",\n  \"name\": \"nisi commodo in ex\",\n  \"category\": \"Family_Parenting\",\n  \"description\": \"eu\",\n  \"profileImageUrl\": \"cillum in esse deserunt\",\n  \"backgroundImageUrl\": \"amet commodo pariatur eu\"\n}",
+									"raw": "{\n  \"boardUniqueId\": \"qui\",\n  \"name\": \"sint ad\",\n  \"category\": \"Education_Universities\",\n  \"description\": \"cupidatat est exercitation\",\n  \"profileImageUrl\": \"ipsum proident eiusmod\",\n  \"backgroundImageUrl\": \"in est\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -360,22 +246,24 @@
 									],
 									"variable": [
 										{
+											"id": "31d40802-daaa-4cf8-a17a-2f300b9aebfd",
 											"key": "uniqueId",
-											"value": "ipsum enim dolore id",
+											"value": "irure dolore officia fugiat tempor",
 											"description": "(Required) unqiue id of metanium room"
 										},
 										{
+											"id": "0352500d-1185-40f1-872a-b2574dab9294",
 											"key": "environment",
 											"value": "{{environment}}",
 											"description": " (This can only be one of partner-api,dev-partner-api)"
 										}
 									]
 								},
-								"description": "모모보드에 서브 보드를 만듭니다.\n\n메타리움에서 새로운 게시판 형태의 Room이 추가 될때 요청합니다.\n\nuniqueId : 고객의 UniqueId\n\nboardUniqueId: room id"
+								"description": "모모보드에 서브 보드를 만듭니다. 메타리움에서 새로운 게시판 형태의 Room이 추가 될때 요청합니다. uniqueId 고객의 UniqueId boardUniqueId room id"
 							},
 							"response": [
 								{
-									"id": "cefc9caa-d8f7-47fd-959a-63e5e8290ae2",
+									"id": "71c5f2a1-5d0b-4d0b-8aab-5d868d07317d",
 									"name": "OK",
 									"originalRequest": {
 										"method": "POST",
@@ -386,6 +274,15 @@
 												"value": "<API Key>"
 											}
 										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"boardUniqueId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "{{baseUrl}}/boards/:uniqueId/boards",
 											"host": [
@@ -399,7 +296,7 @@
 											"variable": [
 												{
 													"key": "uniqueId",
-													"value": "ipsum enim dolore id",
+													"value": "irure dolore officia fugiat tempor",
 													"description": "(Required) unqiue id of metanium room"
 												},
 												{
@@ -413,16 +310,21 @@
 									"status": "Created",
 									"code": 201,
 									"_postman_previewlanguage": "json",
-									"header": [],
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n  \"boardUniqueId\": 1234,\n  \"name\": \"Metanium room\",\n  \"description\": \"connect metanium room\",\n  \"category\": \"Arts_Entertainment\"\n}"
+									"body": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}"
 								}
 							]
 						},
 						{
 							"name": "Create chat of metanium room",
-							"id": "57b13c06-6f55-44eb-ac97-8d5128bec322",
+							"id": "caebd112-df1e-467a-910b-c0efd176428f",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -438,22 +340,24 @@
 									],
 									"variable": [
 										{
+											"id": "928f07f7-9638-419d-9780-7c12634c06d4",
 											"key": "uniqueId",
-											"value": "ipsum enim dolore id",
+											"value": "irure dolore officia fugiat tempor",
 											"description": "(Required) unqiue id of metanium room"
 										},
 										{
+											"id": "7b79df8e-3204-491a-9339-0314e9397ffb",
 											"key": "environment",
 											"value": "{{environment}}",
 											"description": " (This can only be one of partner-api,dev-partner-api)"
 										}
 									]
 								},
-								"description": "모모보드에 그룹 채팅방을 만듭니다.\n\n메타리움에서 새로운 \b채팅 형태의 Room이 추가 될때 요청합니다.\n\nuniqueId : 고객의 UniqueId\n\nboardUniqueId: room id"
+								"description": "모모보드에 그룹 채팅방을 만듭니다. 메타리움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다. uniqueId 고객의 UniqueId boardUniqueId room id"
 							},
 							"response": [
 								{
-									"id": "f5eeff11-134c-43e6-8e7e-ab2c94256d15",
+									"id": "64a9bb7c-9b72-406f-9666-4261eab192bb",
 									"name": "OK",
 									"originalRequest": {
 										"method": "POST",
@@ -477,7 +381,7 @@
 											"variable": [
 												{
 													"key": "uniqueId",
-													"value": "ipsum enim dolore id",
+													"value": "irure dolore officia fugiat tempor",
 													"description": "(Required) unqiue id of metanium room"
 												},
 												{
@@ -491,7 +395,12 @@
 									"status": "Created",
 									"code": 201,
 									"_postman_previewlanguage": "text",
-									"header": [],
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
 									"body": ""
@@ -499,12 +408,11 @@
 							]
 						}
 					],
-					"id": "0dc4859d-4bf3-468f-b77f-58fa79aa7a5b",
-					"description": "메타리움의 boardUniqueId입니다."
+					"id": "246a1cea-597e-4348-8167-b90b4a8a3f10"
 				},
 				{
 					"name": "Create Board",
-					"id": "5532b097-f143-48a7-94e3-b412173c8950",
+					"id": "4b7cf805-e8a6-4a45-83ed-5a0173f6968a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -522,7 +430,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"boardUniqueId\": \"exer\",\n  \"name\": \"nisi commodo in ex\",\n  \"category\": \"Family_Parenting\",\n  \"description\": \"eu\",\n  \"profileImageUrl\": \"cillum in esse deserunt\",\n  \"backgroundImageUrl\": \"amet commodo pariatur eu\"\n}",
+							"raw": "{\n  \"boardUniqueId\": \"qui\",\n  \"name\": \"sint ad\",\n  \"category\": \"Education_Universities\",\n  \"description\": \"cupidatat est exercitation\",\n  \"profileImageUrl\": \"ipsum proident eiusmod\",\n  \"backgroundImageUrl\": \"in est\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -539,17 +447,18 @@
 							],
 							"variable": [
 								{
+									"id": "a30946be-466d-4c2a-a517-474848920f74",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
 								}
 							]
 						},
-						"description": "모모보드에 새로운 메인보드를 생성합니다.\n\n메타리움의 새로운 고객이 추가 될때 사용합니다.\n\nboardUniqueId와 모모보드의 보드를 매핑합니다.\n\n(ex: 현대퓨처넷의 경우 boardUniqueId가 현대 퓨처넷의 uniqueKey입니다.)\n\n|  |  |\n| --- | --- |\n| category | Arts_Entertainment,  <br>Business_Finance,  <br>Company_Organization,  <br>Computers_Internet,  <br>Education_Universities,  <br>Family_Parenting,  <br>Fashion_Beauty,  <br>Food_Beverage,  <br>Games_Animations,  <br>Health_Wellness,  <br>Hobby_Crafts,  <br>Local_Life,  <br>Pets_Wild_Animals,  <br>Professional_Specialist,  <br>Religion_Faith,  <br>Science_Technology,  <br>Social_Cultural,  <br>Sports_Recreation,  <br>Travel_Leisure, |"
+						"description": "모모보드에 새로운 메인보드를 생성합니다.메타리움의 새로운 고객이 추가 될때 사용합니다.boardUniqueId와 모모보드의 보드를 매핑합니다.(ex 현대퓨처넷의 경우 boardUniqueId가 현대 퓨처넷의 uniqueKey입니다.)"
 					},
 					"response": [
 						{
-							"id": "2326bc2a-cc7e-4a3b-a2e8-03f00041076e",
+							"id": "14b10838-c4f2-4867-ad00-c1fcad63da97",
 							"name": "Created",
 							"originalRequest": {
 								"method": "POST",
@@ -560,6 +469,15 @@
 										"value": "<API Key>"
 									}
 								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"boardUniqueId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "{{baseUrl}}/boards",
 									"host": [
@@ -580,15 +498,20 @@
 							"status": "Created",
 							"code": 201,
 							"_postman_previewlanguage": "json",
-							"header": [],
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
 							"cookie": [],
 							"responseTime": null,
-							"body": "{\n  \"boardUniqueId\": 1234,\n  \"name\": \"Metanium room\",\n  \"description\": \"connect metanium room\",\n  \"category\": \"Arts_Entertainment\"\n}"
+							"body": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}"
 						}
 					]
 				}
 			],
-			"id": "69b97130-2ee2-479a-831e-1bc1ec7eecbb"
+			"id": "bd8f1722-42dc-4d72-a0b8-71c859c79186"
 		},
 		{
 			"name": "mappings",
@@ -598,7 +521,7 @@
 					"item": [
 						{
 							"name": "get all boards of metanium room by page",
-							"id": "88ca05dc-a800-4b35-8f83-1ff7a2299639",
+							"id": "e59e9e1d-232b-42f7-b423-71d7c23d85b3",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -618,18 +541,19 @@
 									],
 									"query": [
 										{
-											"description": "The number of items to skip before starting to collect the result set",
 											"key": "offset",
-											"value": "0"
+											"value": "0",
+											"description": "The number of items to skip before starting to collect the result set"
 										},
 										{
-											"description": "The numbers of items to return",
 											"key": "limit",
-											"value": "50"
+											"value": "50",
+											"description": "The numbers of items to return"
 										}
 									],
 									"variable": [
 										{
+											"id": "a0711cdf-7009-40f7-bc3d-8c927b3b331b",
 											"key": "environment",
 											"value": "{{environment}}",
 											"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -640,7 +564,7 @@
 							},
 							"response": [
 								{
-									"id": "41e7eb15-675d-4a54-833d-3fee27e70461",
+									"id": "cbaac4e7-33c6-4fce-9b4c-55f3cf405140",
 									"name": "OK",
 									"originalRequest": {
 										"method": "GET",
@@ -682,16 +606,21 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "json",
-									"header": [],
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n  \"list\": [\n    {\n      \"id\": \"magna pariatur anim\",\n      \"boardUniqueId\": \"cillum ex officia est\"\n    },\n    {\n      \"id\": \"Duis Lorem\",\n      \"boardUniqueId\": \"nulla sint pariatur minim in\"\n    }\n  ]\n}"
+									"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
 								}
 							]
 						},
 						{
 							"name": "Update board mapping unique id to board",
-							"id": "8aba555f-7e4f-42c2-b7c5-f4de7eaa74fc",
+							"id": "f8aca2b1-a2ea-4eed-ab58-2a56d82d518b",
 							"request": {
 								"method": "PUT",
 								"header": [
@@ -712,21 +641,24 @@
 									],
 									"variable": [
 										{
+											"id": "1430f0ed-67a7-4bd7-b282-0b8498822389",
 											"key": "uniqueId",
-											"value": "ipsum enim dolore id",
+											"value": "irure dolore officia fugiat tempor",
 											"description": "(Required) unqiue id of metanium room"
 										},
 										{
+											"id": "aeaf693d-afe8-40b4-9742-a66d3d75ebf3",
 											"key": "environment",
 											"value": "{{environment}}",
 											"description": " (This can only be one of partner-api,dev-partner-api)"
 										}
 									]
-								}
+								},
+								"description": "기존에 매핑 된 roomId를 새로운 roomId로 변경합니다."
 							},
 							"response": [
 								{
-									"id": "f545342b-c1db-484e-9d46-c880c70aad0c",
+									"id": "96019785-3e73-4d4c-86b5-4482f4d785d3",
 									"name": "OK",
 									"originalRequest": {
 										"method": "PUT",
@@ -750,7 +682,7 @@
 											"variable": [
 												{
 													"key": "uniqueId",
-													"value": "ipsum enim dolore id",
+													"value": "irure dolore officia fugiat tempor",
 													"description": "(Required) unqiue id of metanium room"
 												},
 												{
@@ -764,33 +696,24 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "json",
-									"header": [],
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n  \"list\": [\n    {\n      \"id\": \"magna pariatur anim\",\n      \"boardUniqueId\": \"cillum ex officia est\"\n    },\n    {\n      \"id\": \"Duis Lorem\",\n      \"boardUniqueId\": \"nulla sint pariatur minim in\"\n    }\n  ]\n}"
-								}
-							],
-							"variable": [
-								{
-									"id": "b9ade9a4-4a9e-4ade-8c97-66aae3566913",
-									"key": "uniqueId",
-									"value": "ipsum enim dolore id",
-									"description": "(Required) unqiue id of metanium room"
-								},
-								{
-									"id": "a638ba3b-5e44-433b-9fe5-1d2a8f0238fa",
-									"key": "environment",
-									"value": "{{environment}}",
-									"description": " (This can only be one of partner-api,dev-partner-api)"
+									"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
 								}
 							]
 						}
 					],
-					"id": "e0706fa5-489e-4de6-8c13-0e6a53db6b09"
+					"id": "720f18b0-827a-44be-b62f-d91b2f471499"
 				},
 				{
 					"name": "get all users by page",
-					"id": "4748de1d-32d6-4b23-8df4-0e82e4366a62",
+					"id": "4c7e94e5-9c92-44f2-976e-608c6711c5df",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -810,18 +733,19 @@
 							],
 							"query": [
 								{
-									"description": "The number of items to skip before starting to collect the result set",
 									"key": "offset",
-									"value": "0"
+									"value": "0",
+									"description": "The number of items to skip before starting to collect the result set"
 								},
 								{
-									"description": "The numbers of items to return",
 									"key": "limit",
-									"value": "50"
+									"value": "50",
+									"description": "The numbers of items to return"
 								}
 							],
 							"variable": [
 								{
+									"id": "7fabb6a7-c95d-4533-8619-a8701bb3229d",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -832,7 +756,7 @@
 					},
 					"response": [
 						{
-							"id": "c19f546b-29a7-48ab-95ab-1495f93d2005",
+							"id": "64ddf815-9f6e-4d80-aea2-46e52547ef08",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -874,22 +798,27 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"header": [],
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
 							"cookie": [],
 							"responseTime": null,
-							"body": "{\n  \"list\": [\n    {\n      \"id\": \"magna pariatur anim\",\n      \"boardUniqueId\": \"cillum ex officia est\"\n    },\n    {\n      \"id\": \"Duis Lorem\",\n      \"boardUniqueId\": \"nulla sint pariatur minim in\"\n    }\n  ]\n}"
+							"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
 						}
 					]
 				}
 			],
-			"id": "c242cc9c-5292-42bb-8eea-6b1d3bf2eb3c"
+			"id": "a54bdeb3-3be9-44c9-a074-5038d7a127b5"
 		},
 		{
 			"name": "embed",
 			"item": [
 				{
 					"name": "Connect User",
-					"id": "e106f067-e2e5-4651-a9cf-dc523270bf16",
+					"id": "51ca36a3-6eb3-4f56-a51f-9f4567c092db",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -899,7 +828,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/embed/connect?boardUniqueId=ipsum enim dolore id&userUniqueId=ipsum enim dolore id",
+							"raw": "{{baseUrl}}/embed/connect?boardUniqueId=irure dolore officia fugiat tempor&userUniqueId=irure dolore officia fugiat tempor",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -909,18 +838,19 @@
 							],
 							"query": [
 								{
-									"description": "(Required) unqiue id of metanium room",
 									"key": "boardUniqueId",
-									"value": "ipsum enim dolore id"
+									"value": "irure dolore officia fugiat tempor",
+									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"description": "(Required) unqiue id of user",
 									"key": "userUniqueId",
-									"value": "ipsum enim dolore id"
+									"value": "irure dolore officia fugiat tempor",
+									"description": "(Required) unqiue id of user"
 								}
 							],
 							"variable": [
 								{
+									"id": "a070155e-7e8e-435b-b8f2-8b2c0832cd28",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -931,7 +861,7 @@
 					},
 					"response": [
 						{
-							"id": "5c520e1c-9c5e-43b2-aaa9-0738a5cfcee5",
+							"id": "094583eb-769e-45ec-b18a-f16066146f44",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -943,7 +873,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/embed/connect?boardUniqueId=ipsum enim dolore id&userUniqueId=ipsum enim dolore id",
+									"raw": "{{baseUrl}}/embed/connect?boardUniqueId=<string>&userUniqueId=<string>",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -954,11 +884,11 @@
 									"query": [
 										{
 											"key": "boardUniqueId",
-											"value": "ipsum enim dolore id"
+											"value": "<string>"
 										},
 										{
 											"key": "userUniqueId",
-											"value": "ipsum enim dolore id"
+											"value": "<string>"
 										}
 									],
 									"variable": [
@@ -973,21 +903,26 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"header": [],
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
 							"cookie": [],
 							"responseTime": null,
-							"body": "{\n  \"momoUrl\": \"ex sint\"\n}"
+							"body": "{\n  \"momoUrl\": \"<url>\"\n}"
 						}
 					]
 				},
 				{
 					"name": "check user if in the room",
-					"id": "808f9468-561c-4732-9a85-c7379ad6e9bc",
+					"id": "ef0a56d4-e9db-4207-9bc1-c431ef38a2d6",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/embed/users?uniqueId=ipsum enim dolore id",
+							"raw": "{{baseUrl}}/embed/users?uniqueId=irure dolore officia fugiat tempor",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -997,24 +932,25 @@
 							],
 							"query": [
 								{
-									"description": "(Required) unqiue id of user",
 									"key": "uniqueId",
-									"value": "ipsum enim dolore id"
+									"value": "irure dolore officia fugiat tempor",
+									"description": "(Required) unqiue id of user"
 								}
 							],
 							"variable": [
 								{
+									"id": "9e527e87-3e12-45fd-8b09-c3017366298f",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
 								}
 							]
 						},
-						"description": "사용자가 모모보드에 가입한 사용자인지 확인합니다."
+						"description": "사용자가 모모보드에 가입한 사용자인지 확인합니다.\n"
 					},
 					"response": [
 						{
-							"id": "377dd4c5-7baa-490e-9085-32a3e31bc923",
+							"id": "d43372af-3b20-4d92-9982-3cc2706389cc",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -1026,7 +962,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/embed/users?uniqueId=ipsum enim dolore id",
+									"raw": "{{baseUrl}}/embed/users?uniqueId=<string>",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1037,7 +973,7 @@
 									"query": [
 										{
 											"key": "uniqueId",
-											"value": "ipsum enim dolore id"
+											"value": "<string>"
 										}
 									],
 									"variable": [
@@ -1052,13 +988,18 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "text",
-							"header": [],
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
 							"cookie": [],
 							"responseTime": null,
 							"body": ""
 						},
 						{
-							"id": "7afcf326-b517-433f-941e-4af3256acfba",
+							"id": "b0172852-ffea-4067-b49e-9076f1e082fd",
 							"name": "NOT FOUND",
 							"originalRequest": {
 								"method": "GET",
@@ -1070,7 +1011,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/embed/users?uniqueId=ipsum enim dolore id",
+									"raw": "{{baseUrl}}/embed/users?uniqueId=<string>",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1081,7 +1022,7 @@
 									"query": [
 										{
 											"key": "uniqueId",
-											"value": "ipsum enim dolore id"
+											"value": "<string>"
 										}
 									],
 									"variable": [
@@ -1096,7 +1037,12 @@
 							"status": "Not Found",
 							"code": 404,
 							"_postman_previewlanguage": "text",
-							"header": [],
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
 							"cookie": [],
 							"responseTime": null,
 							"body": ""
@@ -1104,8 +1050,158 @@
 					]
 				}
 			],
-			"id": "a0baba9e-2680-40f8-adaa-7a4562f67c6f",
-			"description": "클라이언트에서 모모보드서버로 요청하는 API 입니다.\n\n발급 받은 클라이언트용 API-KEY를 사용합니다."
+			"id": "5d7a6d55-5967-4d9c-831c-1e899fbf9db0"
+		},
+		{
+			"name": "Create User or retrieve user",
+			"id": "ba2704e6-f8cf-4794-b63e-2da02925f965",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userUniqueId\": \"ipsum proident\",\n  \"email\": \"FloVvBhEtpbck8@smKJJDlNgYV.oy\",\n  \"nickname\": \"\",\n  \"firstname\": \"mollit officia nulla\",\n  \"lastname\": \"magna irure\",\n  \"profileImageUrl\": \"sunt eiusmod anim elit\",\n  \"backgroundImageUrl\": \"et\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users"
+					],
+					"variable": [
+						{
+							"id": "0237b539-1468-4934-9739-e7964329d77a",
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				},
+				"description": "파트너 사용자와 모모보드의 사용자를 매칭하기 위함 API입니다. 모모보드에 가입되어 있지 않은 사용자의 경우 모모보드에 가입을 시킨 후 파트너의 userUniqueI와 매핑을 시킵니다. 이미 모모보드에 가입 되어 있는 email일 경우 기존 모모보드 사용자와 매핑을 합니다."
+			},
+			"response": [
+				{
+					"id": "f3286f34-3ce0-46d5-bfc4-3ee80803a289",
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-API-Key",
+								"value": "<API Key>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userUniqueId\": \"<string>\",\n  \"email\": \"<email>\",\n  \"nickname\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"variable": [
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"id\": \"<string>\",\n  \"userUniqueId\": \"<string>\",\n  \"email\": \"<email>\",\n  \"nickname\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}"
+				},
+				{
+					"id": "9b57c886-cd28-459c-a4af-c0266ed27802",
+					"name": "Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-API-Key",
+								"value": "<API Key>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userUniqueId\": \"<string>\",\n  \"email\": \"<email>\",\n  \"nickname\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"variable": [
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"id\": \"<string>\",\n  \"userUniqueId\": \"<string>\",\n  \"email\": \"<email>\",\n  \"nickname\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}"
+				}
+			]
 		}
 	],
 	"auth": {
@@ -1130,15 +1226,17 @@
 	},
 	"variable": [
 		{
-			"id": "a446f337-0f43-4112-afef-39316394156b",
+			"id": "47fb471a-3f21-46df-8735-5b7e02e93995",
 			"key": "environment",
 			"value": "partner-api",
+			"type": "any",
 			"description": " (This can only be one of partner-api,dev-partner-api)"
 		},
 		{
-			"id": "2bb284ac-46d0-421b-a48e-97ba603de69e",
+			"id": "7aac2069-a81c-42de-9467-7601f598c7f9",
 			"key": "baseUrl",
-			"value": "https://{{environment}}.momoboard.com/partners"
+			"value": "https://{{environment}}.momoboard.com/partners",
+			"type": "string"
 		}
 	]
 }

@@ -1,373 +1,906 @@
-openapi: '3.0.2'
-info:
-  title: Metanium Partner API
-  version: '0.0.2'
-servers:
-  - url: https://{environment}.momoboard.com/partners
-    variables:
-      environment:
-        default: partner-api    # Production server
-        enum:
-          - partner-api         # Production server
-          - dev-partner-api
-paths:
-  /users:
-    post: 
-      summary: Create User or retrieve user
-      description: 파트너 사용자와 모모보드의 사용자를 매칭하기 위함 API입니다. 모모보드에 가입되어 있지 않은 사용자의 경우 모모보드에 가입을 시킨 후 파트너의 `userUniqueI`와 매핑을 시킵니다. 이미 모모보드에 가입 되어 있는 email일 경우 기존 모모보드 사용자와 매핑을 합니다.
-      requestBody: 
-         $ref: '#/components/requestBodies/User'       
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'      
-  /boards:
-    post: 
-      summary: Create Board
-      requestBody: 
-         $ref: '#/components/requestBodies/Board'       
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Board'  
-              example: 
-                boardUniqueId: 1234
-                name: Metanium room
-                description: connect metanium room
-                category: Arts_Entertainment
-  /boards/{uniqueId}:
-    put: 
-      summary: Update board information
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room 
-          required: true
-          schema:
-            type: string
-      requestBody: 
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Board'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Board'  
-              example: 
-                boardUniqueId: 1234
-                name: Metanium room
-                description: connect metanium room
-                category: Arts_Entertainment
-    delete:
-      summary: Delete board 
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room 
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-  /boards/{uniqueId}/boards:
-    post: 
-      summary: Create sub board of metanium room
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room 
-          required: true
-          schema:
-            type: string
-      requestBody: 
-         $ref: '#/components/requestBodies/Board'       
-      responses:
-        '201':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Board'  
-              example: 
-                boardUniqueId: 1234
-                name: Metanium room
-                description: connect metanium room
-                category: Arts_Entertainment
-  /boards/{uniqueId}/chats:
-    post: 
-      summary: Create chat of metanium room 
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room 
-          required: true
-          schema:
-            type: string
-      responses:
-        '201':
-          description: OK
-  /mappings/boards:
-    get:
-      summary: get all boards of metanium room by page
-      parameters:
-        - name: offset
-          in: query
-          description: The number of items to skip before starting to collect the result set
-          schema:
-            type: integer
-            minimum: 0
-            default: 0
-        - name: limit
-          in: query    
-          description: The numbers of items to return
-          schema:
-            type: integer
-            maximum: 100
-            default: 50
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  list: 
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Board'
-  /mappings/boards/{uniqueId}: 
-    put:
-      summary: Update board mapping unique id to board
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room 
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  list: 
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Board'                  
-  /mappings/users:
-    get:
-      summary: get all users by page
-      parameters:
-        - name: offset
-          in: query
-          description: The number of items to skip before starting to collect the result set
-          schema:
-            type: integer
-            minimum: 0
-            default: 0
-        - name: limit
-          in: query    
-          description: The numbers of items to return
-          schema:
-            type: integer
-            maximum: 100
-            default: 50
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  list: 
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Board'  
-  /embed/connect:
-    get:
-      summary: Connect User
-      description: >
-        Connect user to momoboard, join the board when first time landing on the board. return iframe url to render
-      parameters:
-        - name: boardUniqueId
-          in: query
-          description: unqiue id of metanium room 
-          required: true
-          schema:
-            type: string
-        - name: userUniqueId
-          in: query
-          description: unqiue id of user 
-          required: true
-          schema:
-            type: string    
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  momoUrl: 
-                    type: string
-                    format: url
-  /embed/users:
-    get:
-      summary: check user if in the room
-      parameters:
-        - name: uniqueId
-          in: query
-          description: unqiue id of user
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-        '404':
-          description: NOT FOUND
-components:
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: X-API-Key
-  requestBodies: 
-    Board:
-      description: A JSON object containing board information
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties: 
-              boardUniqueId:
-                type: string
-                description: board name 
-              name:
-                type: string
-                description: board name 
-              description:
-                type: string
-              category: 
-                type: string
-                enum: [Arts_Entertainment, Business_Finance, Company_Organization, Computers_Internet, Education_Universities, Family_Parenting, Fashion_Beauty, Food_Beverage, Games_Animations, Health_Wellness, Hobby_Crafts, Local_Life, Pets_Wild_Animals, Professional_Specialist, Religion_Faith, Science_Technology, Social_Cultural, Sports_Recreation, Travel_Leisure]
-              profileImageUrl: 
-                type: string
-                format: url
-              backgroundImageUrl:
-                type: string
-                format: url
-            required:
-              - boardUniqueId
-              - name
-              - category
-              - description
-            example: 
-              boardUniqueId: 1234
-              name: Metanium room
-              description: connect metanium room
-              category: Arts_Entertainment
-    Chat:
-      description: A JSON object containing chat information
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties: 
-              chatUniqueId:
-                type: string
-                description: metanium room unique id
-              userUniqueId: 
-                type: string
-    User:   
-      description: A JSON object containing user information
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties: 
-              userUniqueId:
-                type: string
-                description: metanium room unique id
-              email:
-                type: string  
-                format: email
-              nickname:
-                type: string
-              firstname:
-                type: string
-              lastname: 
-                type: string
-              profileImageUrl: 
-                type: string
-                format: url
-              backgroundImageUrl:
-                type: string
-                format: url
-            required:
-              - userUniqueId
-              - email
-              - nickname
-              - firstname
-              - lastname    
-  schemas:
-    Board:
-      type: object
-      properties:
-        id:
-          type: string
-          description: momo board board id
-        boardUniqueId:
-          type: string
-          description: unique id of metanium room
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-        userUniqueId:
-          type: string
-          description: unique id of metanium user  
-        email:
-          type: string  
-          format: email
-        nickname:
-          type: string
-        firstname:
-          type: string
-        lastname: 
-          type: string
-        profileImageUrl: 
-          type: string
-          format: url
-        backgroundImageUrl:
-          type: string
-          format: url
-security:
-  - ApiKeyAuth: []
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Metanium Partner API",
+    "version": "0.0.2",
+    description: 모모보드와 메타리움간의 API연동을 위한 문서입니다.
+  },
+  "servers": [
+    {
+      "url": "https://{environment}.momoboard.com/partners",
+      "variables": {
+        "environment": {
+          "default": "partner-api",
+          "enum": [
+            "partner-api",
+            "dev-partner-api"
+          ]
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Create User or retrieve user",
+        "description": "파트너 사용자와 모모보드의 사용자를 맵핑하기 위함 API입니다. \n모모보드에 가입되어 있지 않은 사용자의 경우 모모보드에 가입을 시킨 후 파트너의 userUniqueId와 매핑을 시킵니다. \n이미 모모보드에 가입 되어 있는 email일 경우 기존 모모보드 사용자와 매핑을 합니다.",
+        "requestBody": {
+          "description": "A JSON object containing user information",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userUniqueId": {
+                    "type": "string",
+                    "description": "metanium room unique id"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "nickname": {
+                    "type": "string"
+                  },
+                  "firstname": {
+                    "type": "string"
+                  },
+                  "lastname": {
+                    "type": "string"
+                  },
+                  "profileImageUrl": {
+                    "type": "string",
+                    "format": "url"
+                  },
+                  "backgroundImageUrl": {
+                    "type": "string",
+                    "format": "url"
+                  }
+                },
+                "required": [
+                  "userUniqueId",
+                  "email",
+                  "nickname",
+                  "firstname",
+                  "lastname"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "userUniqueId": {
+                      "type": "string",
+                      "description": "unique id of metanium user"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "firstname": {
+                      "type": "string"
+                    },
+                    "lastname": {
+                      "type": "string"
+                    },
+                    "profileImageUrl": {
+                      "type": "string",
+                      "format": "url"
+                    },
+                    "backgroundImageUrl": {
+                      "type": "string",
+                      "format": "url"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "userUniqueId": {
+                      "type": "string",
+                      "description": "unique id of metanium user"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "firstname": {
+                      "type": "string"
+                    },
+                    "lastname": {
+                      "type": "string"
+                    },
+                    "profileImageUrl": {
+                      "type": "string",
+                      "format": "url"
+                    },
+                    "backgroundImageUrl": {
+                      "type": "string",
+                      "format": "url"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boards": {
+      "post": {
+        "summary": "Create Board",
+        "description": "모모보드에 새로운 메인보드를 생성합니다.메타리움의 새로운 고객이 추가 될때 사용합니다.boardUniqueId와 모모보드의 보드를 매핑합니다.(ex 현대퓨처넷의 경우 boardUniqueId가 현대 퓨처넷의 uniqueKey입니다.)",
+        "requestBody": {
+          "description": "A JSON object containing board information",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "boardUniqueId": {
+                    "type": "string",
+                    "description": "board name"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "board name"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string",
+                    "enum": [
+                      "Arts_Entertainment",
+                      "Business_Finance",
+                      "Company_Organization",
+                      "Computers_Internet",
+                      "Education_Universities",
+                      "Family_Parenting",
+                      "Fashion_Beauty",
+                      "Food_Beverage",
+                      "Games_Animations",
+                      "Health_Wellness",
+                      "Hobby_Crafts",
+                      "Local_Life",
+                      "Pets_Wild_Animals",
+                      "Professional_Specialist",
+                      "Religion_Faith",
+                      "Science_Technology",
+                      "Social_Cultural",
+                      "Sports_Recreation",
+                      "Travel_Leisure"
+                    ]
+                  },
+                  "profileImageUrl": {
+                    "type": "string",
+                    "format": "url"
+                  },
+                  "backgroundImageUrl": {
+                    "type": "string",
+                    "format": "url"
+                  }
+                },
+                "required": [
+                  "boardUniqueId",
+                  "name",
+                  "category",
+                  "description"
+                ],
+                "example": {
+                  "boardUniqueId": 1234,
+                  "name": "Metanium room",
+                  "description": "connect metanium room",
+                  "category": "Arts_Entertainment"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "momo board board id"
+                    },
+                    "boardUniqueId": {
+                      "type": "string",
+                      "description": "unique id of metanium room"
+                    }
+                  }
+                },
+                "example": {
+                  "boardUniqueId": 1234,
+                  "name": "Metanium room",
+                  "description": "connect metanium room",
+                  "category": "Arts_Entertainment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boards/{uniqueId}": {
+      "put": {
+        "summary": "Update board information",
+        "parameters": [
+          {
+            "name": "uniqueId",
+            "in": "path",
+            "description": "unqiue id of metanium room",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "momo board board id"
+                  },
+                  "boardUniqueId": {
+                    "type": "string",
+                    "description": "unique id of metanium room"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "momo board board id"
+                    },
+                    "boardUniqueId": {
+                      "type": "string",
+                      "description": "unique id of metanium room"
+                    }
+                  }
+                },
+                "example": {
+                  "boardUniqueId": 1234,
+                  "name": "Metanium room",
+                  "description": "connect metanium room",
+                  "category": "Arts_Entertainment"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete board",
+        "description": "보드를 삭제합니다.",
+        "parameters": [
+          {
+            "name": "uniqueId",
+            "in": "path",
+            "description": "unqiue id of metanium room",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/boards/{uniqueId}/boards": {
+      "post": {
+        "summary": "Create sub board of metanium room",
+        "description": "모모보드에 서브 보드를 만듭니다. 메타리움에서 새로운 게시판 형태의 Room이 추가 될때 요청합니다.",
+        "parameters": [
+          {
+            "name": "uniqueId",
+            "in": "path",
+            "description": "unqiue id of metanium room",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "A JSON object containing board information",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "boardUniqueId": {
+                    "type": "string",
+                    "description": "board name"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "board name"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string",
+                    "enum": [
+                      "Arts_Entertainment",
+                      "Business_Finance",
+                      "Company_Organization",
+                      "Computers_Internet",
+                      "Education_Universities",
+                      "Family_Parenting",
+                      "Fashion_Beauty",
+                      "Food_Beverage",
+                      "Games_Animations",
+                      "Health_Wellness",
+                      "Hobby_Crafts",
+                      "Local_Life",
+                      "Pets_Wild_Animals",
+                      "Professional_Specialist",
+                      "Religion_Faith",
+                      "Science_Technology",
+                      "Social_Cultural",
+                      "Sports_Recreation",
+                      "Travel_Leisure"
+                    ]
+                  },
+                  "profileImageUrl": {
+                    "type": "string",
+                    "format": "url"
+                  },
+                  "backgroundImageUrl": {
+                    "type": "string",
+                    "format": "url"
+                  }
+                },
+                "required": [
+                  "boardUniqueId",
+                  "name",
+                  "category",
+                  "description"
+                ],
+                "example": {
+                  "boardUniqueId": 1234,
+                  "name": "Metanium room",
+                  "description": "connect metanium room",
+                  "category": "Arts_Entertainment"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "momo board board id"
+                    },
+                    "boardUniqueId": {
+                      "type": "string",
+                      "description": "unique id of metanium room"
+                    }
+                  }
+                },
+                "example": {
+                  "boardUniqueId": 1234,
+                  "name": "Metanium room",
+                  "description": "connect metanium room",
+                  "category": "Arts_Entertainment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boards/{uniqueId}/chats": {
+      "post": {
+        "summary": "Create chat of metanium room",
+        "description": "모모보드에 그룹 채팅방을 만듭니다. 메타리움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다.",
+        "parameters": [
+          {
+            "name": "uniqueId",
+            "in": "path",
+            "description": "unqiue id of metanium room",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mappings/boards": {
+      "get": {
+        "summary": "get all boards of metanium room by page",
+        "description": "모모보드와 메타리움간의 매핑된 보드 목록을 반환합니다.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The number of items to skip before starting to collect the result set",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The numbers of items to return",
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "momo board board id"
+                          },
+                          "boardUniqueId": {
+                            "type": "string",
+                            "description": "unique id of metanium room"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mappings/boards/{uniqueId}": {
+      "put": {
+        "summary": "Update board mapping unique id to board",
+        "description": "기존에 매핑 된 roomId를 새로운 roomId로 변경합니다.",
+        "parameters": [
+          {
+            "name": "uniqueId",
+            "in": "path",
+            "description": "unqiue id of metanium room",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "momo board board id"
+                          },
+                          "boardUniqueId": {
+                            "type": "string",
+                            "description": "unique id of metanium room"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mappings/users": {
+      "get": {
+        "summary": "get all users by page",
+        "description": "모모보드와 메타리움간의 매핑된 사용자 목록을 반환합니다.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The number of items to skip before starting to collect the result set",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The numbers of items to return",
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "momo board board id"
+                          },
+                          "boardUniqueId": {
+                            "type": "string",
+                            "description": "unique id of metanium room"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/embed/connect": {
+      "get": {
+        "summary": "Connect User",
+        "description": "Connect user to momoboard, join the board when first time landing on the board. return iframe url to render\n",
+        "parameters": [
+          {
+            "name": "boardUniqueId",
+            "in": "query",
+            "description": "unqiue id of metanium room",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userUniqueId",
+            "in": "query",
+            "description": "unqiue id of user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "momoUrl": {
+                      "type": "string",
+                      "format": "url"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/embed/users": {
+      "get": {
+        "summary": "check user if in the room",
+        "description": "사용자가 모모보드에 가입한 사용자인지 확인합니다.\n",
+        "parameters": [
+          {
+            "name": "uniqueId",
+            "in": "query",
+            "description": "unqiue id of user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "NOT FOUND"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    },
+    "requestBodies": {
+      "Board": {
+        "description": "A JSON object containing board information",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "boardUniqueId": {
+                  "type": "string",
+                  "description": "board name"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "board name"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string",
+                  "enum": [
+                    "Arts_Entertainment",
+                    "Business_Finance",
+                    "Company_Organization",
+                    "Computers_Internet",
+                    "Education_Universities",
+                    "Family_Parenting",
+                    "Fashion_Beauty",
+                    "Food_Beverage",
+                    "Games_Animations",
+                    "Health_Wellness",
+                    "Hobby_Crafts",
+                    "Local_Life",
+                    "Pets_Wild_Animals",
+                    "Professional_Specialist",
+                    "Religion_Faith",
+                    "Science_Technology",
+                    "Social_Cultural",
+                    "Sports_Recreation",
+                    "Travel_Leisure"
+                  ]
+                },
+                "profileImageUrl": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "backgroundImageUrl": {
+                  "type": "string",
+                  "format": "url"
+                }
+              },
+              "required": [
+                "boardUniqueId",
+                "name",
+                "category",
+                "description"
+              ],
+              "example": {
+                "boardUniqueId": 1234,
+                "name": "Metanium room",
+                "description": "connect metanium room",
+                "category": "Arts_Entertainment"
+              }
+            }
+          }
+        }
+      },
+      "Chat": {
+        "description": "A JSON object containing chat information",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chatUniqueId": {
+                  "type": "string",
+                  "description": "metanium room unique id"
+                },
+                "userUniqueId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "User": {
+        "description": "A JSON object containing user information",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userUniqueId": {
+                  "type": "string",
+                  "description": "metanium room unique id"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "nickname": {
+                  "type": "string"
+                },
+                "firstname": {
+                  "type": "string"
+                },
+                "lastname": {
+                  "type": "string"
+                },
+                "profileImageUrl": {
+                  "type": "string",
+                  "format": "url"
+                },
+                "backgroundImageUrl": {
+                  "type": "string",
+                  "format": "url"
+                }
+              },
+              "required": [
+                "userUniqueId",
+                "email",
+                "nickname",
+                "firstname",
+                "lastname"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Board": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "momo board board id"
+          },
+          "boardUniqueId": {
+            "type": "string",
+            "description": "unique id of metanium room"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "userUniqueId": {
+            "type": "string",
+            "description": "unique id of metanium user"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "firstname": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "profileImageUrl": {
+            "type": "string",
+            "format": "url"
+          },
+          "backgroundImageUrl": {
+            "type": "string",
+            "format": "url"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}
