@@ -249,6 +249,159 @@ paths:
       responses:
         '200':
           description: OK
+  '/boards/{uniqueId}/join':
+    put:
+      summary: join chat
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userUniqueId:
+                  type: string
+                  description: unqiue id of metanium user
+      responses:
+        '200':
+          description: OK
+          headers: 
+            content-type: 
+              schema:
+                type: string
+                default: application/json
+    delete:
+      summary: leave chat
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userUniqueId:
+                  type: string
+                  description: unqiue id of metanium user      
+      responses:
+        '200':
+          description: OK  
+  '/chats/{uniqueId}':
+    put:
+      summary: Update chat information
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: momo board chat name
+      responses:
+        '200':
+          description: OK
+          headers: 
+            content-type: 
+              schema:
+                type: string
+                default: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: momo board board id
+                  boardUniqueId:
+                    type: string
+                    description: unique id of metanium room
+              example:
+                boardUniqueId: 1234
+                name: Metanium room
+                description: connect metanium room
+                category: Arts_Entertainment
+    delete:
+      summary: Delete chat
+      description: 보드를 삭제합니다.
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK      
+  '/chats/{uniqueId}/join':
+    put:
+      summary: join chat
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userUniqueId:
+                  type: string
+                  description: unqiue id of metanium user
+      responses:
+        '200':
+          description: OK
+          headers: 
+            content-type: 
+              schema:
+                type: string
+                default: application/json
+    delete:
+      summary: leave chat
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metanium room
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userUniqueId:
+                  type: string
+                  description: unqiue id of metanium user      
+      responses:
+        '200':
+          description: OK
+                        
   '/boards/{uniqueId}/boards':
     post:
       summary: Create sub board of metanium room
@@ -393,6 +546,46 @@ paths:
                         boardUniqueId:
                           type: string
                           description: unique id of metanium room
+  /mappings/chats:
+    get:
+      summary: get all chats of metanium room by page
+      description: 모모보드와 메타리움간의 매핑된 보드 목록을 반환합니다.
+      parameters:
+        - name: offset
+          in: query
+          description: >-
+            The number of items to skip before starting to collect the result
+            set
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: limit
+          in: query
+          description: The numbers of items to return
+          schema:
+            type: integer
+            maximum: 100
+            default: 50
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: momo board board id
+                        boardUniqueId:
+                          type: string
+                          description: unique id of metanium room                        
   '/mappings/boards/{uniqueId}':
     put:
       summary: Update board mapping unique id to board
@@ -422,7 +615,7 @@ paths:
                           description: momo board board id
                         boardUniqueId:
                           type: string
-                          description: unique id of metanium room
+                          description: unique id of metanium room                       
   /mappings/users:
     get:
       summary: get all users by page
