@@ -291,7 +291,13 @@
 									"status": "Created",
 									"code": 201,
 									"_postman_previewlanguage": "json",
-									"header": [],
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}"
@@ -299,13 +305,13 @@
 							],
 							"variable": [
 								{
-									"id": "daae2829-818a-4427-a48e-df5fd6780517",
+									"id": "3248b828-2dd8-4f45-9870-024324aa725a",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "574a55ec-2d1b-42cc-b894-54d46a6950d6",
+									"id": "e216e2ee-ab82-4dc1-bd24-8b43f01982d4",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -391,13 +397,13 @@
 							],
 							"variable": [
 								{
-									"id": "94500f9e-9c08-4da7-b5d1-c5ca317af09e",
+									"id": "f2d6e42f-7564-43b2-a1b1-de1fd3b24cfb",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "027c4778-6106-431f-b4d9-90d4a92de177",
+									"id": "64551bc5-7c24-45f0-a41b-bb8e8e231c21",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -485,7 +491,13 @@
 							"status": "Created",
 							"code": 201,
 							"_postman_previewlanguage": "json",
-							"header": [],
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"enabled": true
+								}
+							],
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}"
@@ -493,7 +505,7 @@
 					],
 					"variable": [
 						{
-							"id": "03d01ef8-4eb1-45d7-93b9-413789b3a9cb",
+							"id": "c3ddb29f-1273-4626-beea-c5cc45aa2bfe",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -595,7 +607,13 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "json",
-									"header": [],
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
@@ -678,7 +696,13 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "json",
-									"header": [],
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
@@ -774,7 +798,13 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"header": [],
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"enabled": true
+								}
+							],
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
@@ -873,7 +903,13 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"header": [],
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"enabled": true
+								}
+							],
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n  \"momoUrl\": \"<url>\"\n}"
@@ -1084,7 +1120,13 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": [],
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
 					"cookie": [],
 					"responseTime": null,
 					"body": "{\n \"id\": \"<string>\",\n \"userUniqueId\": \"<string>\",\n \"email\": \"4EmTvpmAW@inZThPmkTQji.oxu\",\n \"nickname\": \"<string>\",\n \"firstname\": \"<string>\",\n \"lastname\": \"<string>\",\n \"profileImageUrl\": \"<url>\",\n \"backgroundImageUrl\": \"<url>\"\n}"
@@ -1130,7 +1172,13 @@
 					"status": "Created",
 					"code": 201,
 					"_postman_previewlanguage": "json",
-					"header": [],
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
 					"cookie": [],
 					"responseTime": null,
 					"body": "{\n \"id\": \"<string>\",\n \"userUniqueId\": \"<string>\",\n \"email\": \"4EmTvpmAW@inZThPmkTQji.oxu\",\n \"nickname\": \"<string>\",\n \"firstname\": \"<string>\",\n \"lastname\": \"<string>\",\n \"profileImageUrl\": \"<url>\",\n \"backgroundImageUrl\": \"<url>\"\n}"
@@ -1138,10 +1186,374 @@
 			],
 			"variable": [
 				{
-					"id": "b3a81eb7-3daa-412a-bebf-53333b2eb50b",
+					"id": "ccbcb8d7-d02f-4329-a8b0-7a83a2cf45a5",
 					"key": "environment",
 					"value": "{{environment}}",
 					"description": " (This can only be one of partner-api,dev-partner-api)"
+				}
+			]
+		},
+		{
+			"name": "join chat",
+			"id": "c6072105-192b-40be-b3f4-79a7835dec77",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userUniqueId\": \"ipsum commodo nulla\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/boards/:uniqueId/join",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"boards",
+						":uniqueId",
+						"join"
+					],
+					"variable": [
+						{
+							"key": "uniqueId",
+							"value": "aliqua sed",
+							"description": "(Required) unqiue id of metanium room"
+						},
+						{
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "leave chat",
+			"id": "15b273b0-abc1-4433-b8eb-e3c894dea4c2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userUniqueId\": \"ipsum commodo nulla\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/boards/:uniqueId/join",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"boards",
+						":uniqueId",
+						"join"
+					],
+					"variable": [
+						{
+							"key": "uniqueId",
+							"value": "aliqua sed",
+							"description": "(Required) unqiue id of metanium room"
+						},
+						{
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update chat information",
+			"id": "13c97f16-6885-4d8f-9bef-b73461360883",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"ad in\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/chats/:uniqueId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"chats",
+						":uniqueId"
+					],
+					"variable": [
+						{
+							"key": "uniqueId",
+							"value": "aliqua sed",
+							"description": "(Required) unqiue id of metanium room"
+						},
+						{
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete chat",
+			"id": "3164c39c-ac60-4a76-b11b-25e544178297",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/chats/:uniqueId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"chats",
+						":uniqueId"
+					],
+					"variable": [
+						{
+							"key": "uniqueId",
+							"value": "aliqua sed",
+							"description": "(Required) unqiue id of metanium room"
+						},
+						{
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				},
+				"description": "보드를 삭제합니다."
+			},
+			"response": []
+		},
+		{
+			"name": "join chat",
+			"id": "512d2a91-52d4-47c9-b64f-d20cee6a02d2",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userUniqueId\": \"ipsum commodo nulla\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/chats/:uniqueId/join",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"chats",
+						":uniqueId",
+						"join"
+					],
+					"variable": [
+						{
+							"key": "uniqueId",
+							"value": "aliqua sed",
+							"description": "(Required) unqiue id of metanium room"
+						},
+						{
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "leave chat",
+			"id": "f96f3d29-8796-4fa4-8263-6357b2da53fc",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userUniqueId\": \"ipsum commodo nulla\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/chats/:uniqueId/join",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"chats",
+						":uniqueId",
+						"join"
+					],
+					"variable": [
+						{
+							"key": "uniqueId",
+							"value": "aliqua sed",
+							"description": "(Required) unqiue id of metanium room"
+						},
+						{
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all chats of metanium room by page",
+			"id": "c3f0db00-b610-4eb8-8a88-4a48c7dab489",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/mappings/chats?offset=88753292&limit=-524595",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mappings",
+						"chats"
+					],
+					"query": [
+						{
+							"description": "The number of items to skip before starting to collect the result set",
+							"key": "offset",
+							"value": "88753292"
+						},
+						{
+							"description": "The numbers of items to return",
+							"key": "limit",
+							"value": "-524595"
+						}
+					],
+					"variable": [
+						{
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				},
+				"description": "모모보드와 메타리움간의 매핑된 보드 목록을 반환합니다."
+			},
+			"response": [
+				{
+					"id": "f357b350-af2e-4401-824a-5ec82ef59728",
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-API-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/mappings/chats?offset=45175846&limit=-67747902",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"mappings",
+								"chats"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "45175846"
+								},
+								{
+									"key": "limit",
+									"value": "-67747902"
+								}
+							],
+							"variable": [
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"list\": [\n    {\n      \"id\": \"qui est veniam deserunt enim\",\n      \"boardUniqueId\": \"eu\"\n    },\n    {\n      \"id\": \"id dolor ipsum\",\n      \"boardUniqueId\": \"tempor non mollit sunt sit\"\n    }\n  ]\n}"
 				}
 			]
 		}
@@ -1168,13 +1580,13 @@
 	},
 	"variable": [
 		{
-			"id": "8f5bd1ce-027d-4a62-b952-1fd7112d1134",
+			"id": "aa4c010b-25fb-4437-ac6e-ab5ef0ba4471",
 			"key": "environment",
 			"value": "partner-api",
 			"description": " (This can only be one of partner-api,dev-partner-api)"
 		},
 		{
-			"id": "1fa7b577-3e5d-43e4-af79-8cd2ca8909b0",
+			"id": "fd2a861a-b9f8-4d53-9314-c020b2299b23",
 			"key": "baseUrl",
 			"value": "https://{{environment}}.momoboard.com/partners"
 		}
