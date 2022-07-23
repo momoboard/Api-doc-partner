@@ -251,7 +251,7 @@ paths:
           description: OK
   '/boards/{uniqueId}/join':
     put:
-      summary: join chat
+      summary: join board
       parameters:
         - name: uniqueId
           in: path
@@ -277,7 +277,7 @@ paths:
                 type: string
                 default: application/json
     delete:
-      summary: leave chat
+      summary: leave board
       parameters:
         - name: uniqueId
           in: path
