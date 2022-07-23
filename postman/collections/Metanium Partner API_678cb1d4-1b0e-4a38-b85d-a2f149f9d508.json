@@ -305,13 +305,13 @@
 							],
 							"variable": [
 								{
-									"id": "3248b828-2dd8-4f45-9870-024324aa725a",
+									"id": "8a5eefea-1383-494e-90cd-c716b50ab133",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "e216e2ee-ab82-4dc1-bd24-8b43f01982d4",
+									"id": "4b975e69-d609-4c7b-8a8f-2a52ee45216b",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -397,13 +397,115 @@
 							],
 							"variable": [
 								{
-									"id": "f2d6e42f-7564-43b2-a1b1-de1fd3b24cfb",
+									"id": "9453d218-3aab-4bf7-b8b9-bcfd57bd1f47",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "64551bc5-7c24-45f0-a41b-bb8e8e231c21",
+									"id": "743b73de-3ade-4602-b6da-ac97a856232c",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						},
+						{
+							"name": "join board",
+							"id": "c6072105-192b-40be-b3f4-79a7835dec77",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/boards/:uniqueId/join",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards",
+										":uniqueId",
+										"join"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "aliqua sed",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"response": [],
+							"variable": [
+								{
+									"id": "088487a5-2110-4784-a76d-c68bcb7433cf",
+									"key": "uniqueId",
+									"value": "aliqua sed",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "6f9b93f7-7c6a-406c-bb3f-f4576c5f4916",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						},
+						{
+							"name": "Leave board",
+							"id": "15b273b0-abc1-4433-b8eb-e3c894dea4c2",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/boards/:uniqueId/join",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards",
+										":uniqueId",
+										"join"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "aliqua sed",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"response": [],
+							"variable": [
+								{
+									"id": "6da2c814-1a15-4ceb-a7b4-6480743bdef0",
+									"key": "uniqueId",
+									"value": "aliqua sed",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "543202fe-71d7-48d8-972e-a571eaf77a8d",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -505,7 +607,7 @@
 					],
 					"variable": [
 						{
-							"id": "c3ddb29f-1273-4626-beea-c5cc45aa2bfe",
+							"id": "97a9bb72-3f82-4024-876f-97e0f9ffad78",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1186,104 +1288,12 @@
 			],
 			"variable": [
 				{
-					"id": "ccbcb8d7-d02f-4329-a8b0-7a83a2cf45a5",
+					"id": "eb6358ac-4e53-4ac2-bef7-3edb35e122b5",
 					"key": "environment",
 					"value": "{{environment}}",
 					"description": " (This can only be one of partner-api,dev-partner-api)"
 				}
 			]
-		},
-		{
-			"name": "join chat",
-			"id": "c6072105-192b-40be-b3f4-79a7835dec77",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"userUniqueId\": \"ipsum commodo nulla\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/boards/:uniqueId/join",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"boards",
-						":uniqueId",
-						"join"
-					],
-					"variable": [
-						{
-							"key": "uniqueId",
-							"value": "aliqua sed",
-							"description": "(Required) unqiue id of metanium room"
-						},
-						{
-							"key": "environment",
-							"value": "{{environment}}",
-							"description": " (This can only be one of partner-api,dev-partner-api)"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "leave chat",
-			"id": "15b273b0-abc1-4433-b8eb-e3c894dea4c2",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"userUniqueId\": \"ipsum commodo nulla\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/boards/:uniqueId/join",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"boards",
-						":uniqueId",
-						"join"
-					],
-					"variable": [
-						{
-							"key": "uniqueId",
-							"value": "aliqua sed",
-							"description": "(Required) unqiue id of metanium room"
-						},
-						{
-							"key": "environment",
-							"value": "{{environment}}",
-							"description": " (This can only be one of partner-api,dev-partner-api)"
-						}
-					]
-				}
-			},
-			"response": []
 		},
 		{
 			"name": "Update chat information",
@@ -1367,7 +1377,7 @@
 			"response": []
 		},
 		{
-			"name": "join chat",
+			"name": "Join chat",
 			"id": "512d2a91-52d4-47c9-b64f-d20cee6a02d2",
 			"request": {
 				"method": "PUT",
@@ -1377,15 +1387,6 @@
 						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"userUniqueId\": \"ipsum commodo nulla\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{baseUrl}}/chats/:uniqueId/join",
 					"host": [
@@ -1410,10 +1411,24 @@
 					]
 				}
 			},
-			"response": []
+			"response": [],
+			"variable": [
+				{
+					"id": "680e7580-5829-4282-9967-d7817b42ac1a",
+					"key": "uniqueId",
+					"value": "aliqua sed",
+					"description": "(Required) unqiue id of metanium room"
+				},
+				{
+					"id": "ca351c02-c162-45db-a1f0-14f92c593591",
+					"key": "environment",
+					"value": "{{environment}}",
+					"description": " (This can only be one of partner-api,dev-partner-api)"
+				}
+			]
 		},
 		{
-			"name": "leave chat",
+			"name": "Leave chat",
 			"id": "f96f3d29-8796-4fa4-8263-6357b2da53fc",
 			"request": {
 				"method": "DELETE",
@@ -1423,15 +1438,6 @@
 						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"userUniqueId\": \"ipsum commodo nulla\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{baseUrl}}/chats/:uniqueId/join",
 					"host": [
@@ -1456,10 +1462,24 @@
 					]
 				}
 			},
-			"response": []
+			"response": [],
+			"variable": [
+				{
+					"id": "9906c705-bfb4-4e91-9f30-35c3104656ff",
+					"key": "uniqueId",
+					"value": "aliqua sed",
+					"description": "(Required) unqiue id of metanium room"
+				},
+				{
+					"id": "7617a95d-ddc2-4ffa-ae7e-7539378b4187",
+					"key": "environment",
+					"value": "{{environment}}",
+					"description": " (This can only be one of partner-api,dev-partner-api)"
+				}
+			]
 		},
 		{
-			"name": "get all chats of metanium room by page",
+			"name": "Get all chats of metanium room by page",
 			"id": "c3f0db00-b610-4eb8-8a88-4a48c7dab489",
 			"request": {
 				"method": "GET",
@@ -1555,6 +1575,14 @@
 					"responseTime": null,
 					"body": "{\n  \"list\": [\n    {\n      \"id\": \"qui est veniam deserunt enim\",\n      \"boardUniqueId\": \"eu\"\n    },\n    {\n      \"id\": \"id dolor ipsum\",\n      \"boardUniqueId\": \"tempor non mollit sunt sit\"\n    }\n  ]\n}"
 				}
+			],
+			"variable": [
+				{
+					"id": "87a9b6b5-2337-46d5-807c-347482c7280d",
+					"key": "environment",
+					"value": "{{environment}}",
+					"description": " (This can only be one of partner-api,dev-partner-api)"
+				}
 			]
 		}
 	],
@@ -1580,13 +1608,13 @@
 	},
 	"variable": [
 		{
-			"id": "aa4c010b-25fb-4437-ac6e-ab5ef0ba4471",
+			"id": "1397e94d-1139-4b54-b33b-d5b36f2a2f80",
 			"key": "environment",
 			"value": "partner-api",
 			"description": " (This can only be one of partner-api,dev-partner-api)"
 		},
 		{
-			"id": "fd2a861a-b9f8-4d53-9314-c020b2299b23",
+			"id": "a1158d10-8ce4-4f44-a8d3-9b935ece66da",
 			"key": "baseUrl",
 			"value": "https://{{environment}}.momoboard.com/partners"
 		}

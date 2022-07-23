@@ -277,7 +277,7 @@ paths:
                 type: string
                 default: application/json
     delete:
-      summary: leave board
+      summary: Leave board
       parameters:
         - name: uniqueId
           in: path
@@ -355,7 +355,7 @@ paths:
           description: OK      
   '/chats/{uniqueId}/join':
     put:
-      summary: join chat
+      summary: Join chat
       parameters:
         - name: uniqueId
           in: path
@@ -381,7 +381,7 @@ paths:
                 type: string
                 default: application/json
     delete:
-      summary: leave chat
+      summary: Leave chat
       parameters:
         - name: uniqueId
           in: path
@@ -548,7 +548,7 @@ paths:
                           description: unique id of metanium room
   /mappings/chats:
     get:
-      summary: get all chats of metanium room by page
+      summary: Get all chats of metanium room by page
       description: 모모보드와 메타리움간의 매핑된 보드 목록을 반환합니다.
       parameters:
         - name: offset
