@@ -219,6 +219,7 @@ paths:
             content-type: 
               schema:
                 type: string
+                default: application/json
           content:
             application/json:
               schema:

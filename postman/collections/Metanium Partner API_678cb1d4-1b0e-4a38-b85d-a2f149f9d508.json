@@ -110,7 +110,13 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "json",
-									"header": null,
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}"
@@ -186,7 +192,7 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "text",
-									"header": null,
+									"header": [],
 									"cookie": [],
 									"responseTime": null,
 									"body": ""
@@ -285,7 +291,7 @@
 									"status": "Created",
 									"code": 201,
 									"_postman_previewlanguage": "json",
-									"header": null,
+									"header": [],
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}"
@@ -293,13 +299,13 @@
 							],
 							"variable": [
 								{
-									"id": "3c3f7166-1e18-4185-b5ea-d36b856d359c",
+									"id": "daae2829-818a-4427-a48e-df5fd6780517",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "eed08466-1b93-4546-8e6c-c7ef0a8facb8",
+									"id": "574a55ec-2d1b-42cc-b894-54d46a6950d6",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -377,7 +383,7 @@
 									"status": "Created",
 									"code": 201,
 									"_postman_previewlanguage": "text",
-									"header": null,
+									"header": [],
 									"cookie": [],
 									"responseTime": null,
 									"body": ""
@@ -385,13 +391,13 @@
 							],
 							"variable": [
 								{
-									"id": "3f6c392d-0a09-4dc4-8d23-0a2b20bd5a0e",
+									"id": "94500f9e-9c08-4da7-b5d1-c5ca317af09e",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "34ca64e0-0c53-4f6a-be51-7e7030ef899a",
+									"id": "027c4778-6106-431f-b4d9-90d4a92de177",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -479,7 +485,7 @@
 							"status": "Created",
 							"code": 201,
 							"_postman_previewlanguage": "json",
-							"header": null,
+							"header": [],
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}"
@@ -487,7 +493,7 @@
 					],
 					"variable": [
 						{
-							"id": "2ae04558-48c3-4c3d-b012-8ab958be703a",
+							"id": "03d01ef8-4eb1-45d7-93b9-413789b3a9cb",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -589,7 +595,7 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "json",
-									"header": null,
+									"header": [],
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
@@ -672,7 +678,7 @@
 									"status": "OK",
 									"code": 200,
 									"_postman_previewlanguage": "json",
-									"header": null,
+									"header": [],
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
@@ -768,7 +774,7 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"header": null,
+							"header": [],
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
@@ -867,7 +873,7 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"header": null,
+							"header": [],
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n  \"momoUrl\": \"<url>\"\n}"
@@ -946,7 +952,7 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "text",
-							"header": null,
+							"header": [],
 							"cookie": [],
 							"responseTime": null,
 							"body": ""
@@ -990,7 +996,7 @@
 							"status": "Not Found",
 							"code": 404,
 							"_postman_previewlanguage": "text",
-							"header": null,
+							"header": [],
 							"cookie": [],
 							"responseTime": null,
 							"body": ""
@@ -1078,7 +1084,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [],
 					"cookie": [],
 					"responseTime": null,
 					"body": "{\n \"id\": \"<string>\",\n \"userUniqueId\": \"<string>\",\n \"email\": \"4EmTvpmAW@inZThPmkTQji.oxu\",\n \"nickname\": \"<string>\",\n \"firstname\": \"<string>\",\n \"lastname\": \"<string>\",\n \"profileImageUrl\": \"<url>\",\n \"backgroundImageUrl\": \"<url>\"\n}"
@@ -1124,7 +1130,7 @@
 					"status": "Created",
 					"code": 201,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [],
 					"cookie": [],
 					"responseTime": null,
 					"body": "{\n \"id\": \"<string>\",\n \"userUniqueId\": \"<string>\",\n \"email\": \"4EmTvpmAW@inZThPmkTQji.oxu\",\n \"nickname\": \"<string>\",\n \"firstname\": \"<string>\",\n \"lastname\": \"<string>\",\n \"profileImageUrl\": \"<url>\",\n \"backgroundImageUrl\": \"<url>\"\n}"
@@ -1132,7 +1138,7 @@
 			],
 			"variable": [
 				{
-					"id": "e428dbf4-504e-471b-9397-d82dc7cec13a",
+					"id": "b3a81eb7-3daa-412a-bebf-53333b2eb50b",
 					"key": "environment",
 					"value": "{{environment}}",
 					"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1162,13 +1168,13 @@
 	},
 	"variable": [
 		{
-			"id": "80998c92-b44b-4e5f-8522-915c02c677e6",
+			"id": "8f5bd1ce-027d-4a62-b952-1fd7112d1134",
 			"key": "environment",
 			"value": "partner-api",
 			"description": " (This can only be one of partner-api,dev-partner-api)"
 		},
 		{
-			"id": "26fb2e6c-ad4c-4bbc-88bd-0906c874a0b2",
+			"id": "1fa7b577-3e5d-43e4-af79-8cd2ca8909b0",
 			"key": "baseUrl",
 			"value": "https://{{environment}}.momoboard.com/partners"
 		}
