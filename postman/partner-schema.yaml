@@ -660,8 +660,7 @@ paths:
     get:
       summary: Connect User
       description: >
-        Connect user to momoboard, join the board when first time landing on the
-        board. return iframe url to render
+        Connect user to momoboard, join the board when first time landing on the board. return iframe url to render
       parameters:
         - name: boardUniqueId
           in: query

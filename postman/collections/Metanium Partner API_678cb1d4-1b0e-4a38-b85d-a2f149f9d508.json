@@ -305,13 +305,13 @@
 							],
 							"variable": [
 								{
-									"id": "2874ea04-df8d-4bd0-825c-ca6d0e017e45",
+									"id": "56f8c820-6c22-4c4a-aca1-55ea304c2651",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "df88905f-8999-4256-9792-fa4025f3ee6d",
+									"id": "78c8080b-29c9-4e73-8bdb-4d64f0ee75d3",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -397,13 +397,13 @@
 							],
 							"variable": [
 								{
-									"id": "e516fcb1-2faf-4675-bd28-4038eebdbce9",
+									"id": "a842c86f-5a00-454f-bd83-93eb906e321d",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "165dca0e-8054-4558-8688-d48e4f5e10bb",
+									"id": "b902f5f9-5222-48d6-a33a-000dae520768",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -448,13 +448,13 @@
 							"response": [],
 							"variable": [
 								{
-									"id": "f254a6a4-0583-41af-a938-f6b7304bcfdd",
+									"id": "8197930e-e3e2-4f25-908a-4da39ae65f70",
 									"key": "uniqueId",
 									"value": "aliqua sed",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "2ed090d7-6f56-4dba-b4fa-2ca3a94e11ba",
+									"id": "d623aa66-da52-485e-9ce7-302592b6cb72",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -499,13 +499,13 @@
 							"response": [],
 							"variable": [
 								{
-									"id": "cf553171-eeac-4129-bb1e-c7732bcdd67e",
+									"id": "d5c5b048-de8f-470f-bf9f-6a5182d09230",
 									"key": "uniqueId",
 									"value": "aliqua sed",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "fc0a2dbc-0bff-47d5-930b-f06cdde6b9a3",
+									"id": "78ad2828-d7fd-424e-a366-603f5930c7c3",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -607,7 +607,7 @@
 					],
 					"variable": [
 						{
-							"id": "78bad090-baf3-4d4a-aa37-25d26d38fda2",
+							"id": "81115c4c-87b8-4047-b560-13de7995e80a",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -707,13 +707,13 @@
 					"response": [],
 					"variable": [
 						{
-							"id": "d51de016-ae79-4e2e-9e4f-1c6ddbaa6933",
+							"id": "bac9cadf-b340-4805-807c-feddfe983e82",
 							"key": "uniqueId",
 							"value": "aliqua sed",
 							"description": "(Required) unqiue id of metanium room"
 						},
 						{
-							"id": "a29f6a3d-13af-4f3b-b7f5-0bb05e70e762",
+							"id": "719d1cb7-ecf2-48a7-a819-aefb349d2f78",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -758,13 +758,13 @@
 					"response": [],
 					"variable": [
 						{
-							"id": "25fd3a79-9733-4a5c-a02f-6641afc714a3",
+							"id": "653ed579-d6f0-4e09-b19b-61e158fd0088",
 							"key": "uniqueId",
 							"value": "aliqua sed",
 							"description": "(Required) unqiue id of metanium room"
 						},
 						{
-							"id": "1ed3d08a-7eda-448d-b358-58041a324fea",
+							"id": "2d966de0-1da9-4502-900d-3c050f20182b",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -912,7 +912,7 @@
 							],
 							"variable": [
 								{
-									"id": "9fdbd59b-1358-47e4-98f1-58af4f7f85d3",
+									"id": "21fd3bd3-7dbe-4d63-b053-de666435f285",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1111,7 +1111,7 @@
 					],
 					"variable": [
 						{
-							"id": "bbcee578-d756-4af0-a6a8-697e00a79c85",
+							"id": "50d1fb8c-558b-4f04-b7f0-07c8b88cc3d8",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1218,7 +1218,7 @@
 					],
 					"variable": [
 						{
-							"id": "7d4c00f3-87d9-450d-8a88-b7dc8f0909e6",
+							"id": "9f3dcd06-41dd-4bda-a6d5-9f738e6dc253",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1327,6 +1327,14 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n  \"momoUrl\": \"<url>\"\n}"
+						}
+					],
+					"variable": [
+						{
+							"id": "0e38a278-742f-4e41-9c26-a54f510e8ff7",
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
 						}
 					]
 				},
@@ -1454,7 +1462,7 @@
 					],
 					"variable": [
 						{
-							"id": "f585b29f-0198-48ce-8e00-15314b525467",
+							"id": "ba6c9885-4f60-4f38-b252-2fb78f0e638b",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1462,7 +1470,8 @@
 					]
 				}
 			],
-			"id": "5d7a6d55-5967-4d9c-831c-1e899fbf9db0"
+			"id": "5d7a6d55-5967-4d9c-831c-1e899fbf9db0",
+			"description": "![](https://raw.githubusercontent.com/momoboard/Api-doc-partner/doc-0.0.2/resources/Client_Process.jpg?token=GHSAT0AAAAAABWS3EWRMT3YVRNQ33MRAG5CYW6BZBA)"
 		},
 		{
 			"name": "Create User or retrieve user",
@@ -1608,7 +1617,7 @@
 			],
 			"variable": [
 				{
-					"id": "4d764aeb-b8b4-4098-8d87-fa173e93e4d9",
+					"id": "bbbb2efd-4e76-45bb-8d70-0e087e2d3b95",
 					"key": "environment",
 					"value": "{{environment}}",
 					"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1638,13 +1647,13 @@
 	},
 	"variable": [
 		{
-			"id": "da77b911-9e96-44c7-ac90-0fec562da218",
+			"id": "54dd303e-0cff-417b-93d4-c559c7df0325",
 			"key": "environment",
 			"value": "partner-api",
 			"description": " (This can only be one of partner-api,dev-partner-api)"
 		},
 		{
-			"id": "bb4a26ae-e302-4c7d-b994-c19f21fededf",
+			"id": "1eb43876-788d-4da5-a515-952801cad970",
 			"key": "baseUrl",
 			"value": "https://{{environment}}.momoboard.com/partners"
 		}
