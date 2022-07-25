@@ -305,13 +305,13 @@
 							],
 							"variable": [
 								{
-									"id": "4ce92915-cdcb-49af-aa19-233dec611cd9",
+									"id": "2874ea04-df8d-4bd0-825c-ca6d0e017e45",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "6967721e-6fdb-4a1d-aa78-83c4ff1180cb",
+									"id": "df88905f-8999-4256-9792-fa4025f3ee6d",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -397,13 +397,13 @@
 							],
 							"variable": [
 								{
-									"id": "34f26bd6-3c33-4a64-96ad-52407e2f6c37",
+									"id": "e516fcb1-2faf-4675-bd28-4038eebdbce9",
 									"key": "uniqueId",
 									"value": "irure dolore officia fugiat tempor",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "510177a6-c4c6-49d0-a366-179db3e4fcdd",
+									"id": "165dca0e-8054-4558-8688-d48e4f5e10bb",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -448,13 +448,13 @@
 							"response": [],
 							"variable": [
 								{
-									"id": "0918c567-f6d4-43ed-b6fa-5d96bff80ccb",
+									"id": "f254a6a4-0583-41af-a938-f6b7304bcfdd",
 									"key": "uniqueId",
 									"value": "aliqua sed",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "38a40140-9d88-442c-8660-c347227a152e",
+									"id": "2ed090d7-6f56-4dba-b4fa-2ca3a94e11ba",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -499,13 +499,13 @@
 							"response": [],
 							"variable": [
 								{
-									"id": "50522de6-b0bc-4bc9-8c55-f641ab6c22ae",
+									"id": "cf553171-eeac-4129-bb1e-c7732bcdd67e",
 									"key": "uniqueId",
 									"value": "aliqua sed",
 									"description": "(Required) unqiue id of metanium room"
 								},
 								{
-									"id": "42587d92-a899-4e80-bb40-234ce194ae03",
+									"id": "fc0a2dbc-0bff-47d5-930b-f06cdde6b9a3",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -607,7 +607,7 @@
 					],
 					"variable": [
 						{
-							"id": "567dc4a5-bee6-4a19-9cd5-ca4a8b69a834",
+							"id": "78bad090-baf3-4d4a-aa37-25d26d38fda2",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -616,6 +616,195 @@
 				}
 			],
 			"id": "bd8f1722-42dc-4d72-a0b8-71c859c79186"
+		},
+		{
+			"name": "chats",
+			"item": [
+				{
+					"name": "Update chat information",
+					"id": "13c97f16-6885-4d8f-9bef-b73461360883",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"ad in\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/chats/:uniqueId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chats",
+								":uniqueId"
+							],
+							"variable": [
+								{
+									"key": "uniqueId",
+									"value": "aliqua sed",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leave chat",
+					"id": "f96f3d29-8796-4fa4-8263-6357b2da53fc",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/chats/:uniqueId/join",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chats",
+								":uniqueId",
+								"join"
+							],
+							"variable": [
+								{
+									"key": "uniqueId",
+									"value": "aliqua sed",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"response": [],
+					"variable": [
+						{
+							"id": "d51de016-ae79-4e2e-9e4f-1c6ddbaa6933",
+							"key": "uniqueId",
+							"value": "aliqua sed",
+							"description": "(Required) unqiue id of metanium room"
+						},
+						{
+							"id": "a29f6a3d-13af-4f3b-b7f5-0bb05e70e762",
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				},
+				{
+					"name": "Join chat",
+					"id": "512d2a91-52d4-47c9-b64f-d20cee6a02d2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/chats/:uniqueId/join",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chats",
+								":uniqueId",
+								"join"
+							],
+							"variable": [
+								{
+									"key": "uniqueId",
+									"value": "aliqua sed",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"response": [],
+					"variable": [
+						{
+							"id": "25fd3a79-9733-4a5c-a02f-6641afc714a3",
+							"key": "uniqueId",
+							"value": "aliqua sed",
+							"description": "(Required) unqiue id of metanium room"
+						},
+						{
+							"id": "1ed3d08a-7eda-448d-b358-58041a324fea",
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				},
+				{
+					"name": "Delete chat",
+					"id": "3164c39c-ac60-4a76-b11b-25e544178297",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/chats/:uniqueId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chats",
+								":uniqueId"
+							],
+							"variable": [
+								{
+									"key": "uniqueId",
+									"value": "aliqua sed",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						},
+						"description": "보드를 삭제합니다."
+					},
+					"response": []
+				}
+			],
+			"id": "3d9431ff-6b8d-484f-8d8f-13661d434f0d"
 		},
 		{
 			"name": "mappings",
@@ -723,7 +912,7 @@
 							],
 							"variable": [
 								{
-									"id": "52fc2c33-8e99-41d1-92b5-18336236ebed",
+									"id": "9fdbd59b-1358-47e4-98f1-58af4f7f85d3",
 									"key": "environment",
 									"value": "{{environment}}",
 									"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -823,7 +1012,7 @@
 					"id": "720f18b0-827a-44be-b62f-d91b2f471499"
 				},
 				{
-					"name": "Get all users by page",
+					"name": "get all users by page",
 					"id": "4c7e94e5-9c92-44f2-976e-608c6711c5df",
 					"request": {
 						"method": "GET",
@@ -844,14 +1033,14 @@
 							],
 							"query": [
 								{
+									"description": "The number of items to skip before starting to collect the result set",
 									"key": "offset",
-									"value": "0",
-									"description": "The number of items to skip before starting to collect the result set"
+									"value": "0"
 								},
 								{
+									"description": "The numbers of items to return",
 									"key": "limit",
-									"value": "50",
-									"description": "The numbers of items to return"
+									"value": "50"
 								}
 							],
 							"variable": [
@@ -918,6 +1107,14 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n  \"list\": [\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"boardUniqueId\": \"<string>\"\n    }\n  ]\n}"
+						}
+					],
+					"variable": [
+						{
+							"id": "bbcee578-d756-4af0-a6a8-697e00a79c85",
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
 						}
 					]
 				},
@@ -1021,7 +1218,7 @@
 					],
 					"variable": [
 						{
-							"id": "c0792c3c-bf63-428d-a139-4afce17bb136",
+							"id": "7d4c00f3-87d9-450d-8a88-b7dc8f0909e6",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1257,7 +1454,7 @@
 					],
 					"variable": [
 						{
-							"id": "f821776e-dee5-48e5-b200-08fbe72344d9",
+							"id": "f585b29f-0198-48ce-8e00-15314b525467",
 							"key": "environment",
 							"value": "{{environment}}",
 							"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1266,195 +1463,6 @@
 				}
 			],
 			"id": "5d7a6d55-5967-4d9c-831c-1e899fbf9db0"
-		},
-		{
-			"name": "chats",
-			"item": [
-				{
-					"name": "Update chat information",
-					"id": "13c97f16-6885-4d8f-9bef-b73461360883",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": \"ad in\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/chats/:uniqueId",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chats",
-								":uniqueId"
-							],
-							"variable": [
-								{
-									"key": "uniqueId",
-									"value": "aliqua sed",
-									"description": "(Required) unqiue id of metanium room"
-								},
-								{
-									"key": "environment",
-									"value": "{{environment}}",
-									"description": " (This can only be one of partner-api,dev-partner-api)"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Leave chat",
-					"id": "f96f3d29-8796-4fa4-8263-6357b2da53fc",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/chats/:uniqueId/join",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chats",
-								":uniqueId",
-								"join"
-							],
-							"variable": [
-								{
-									"key": "uniqueId",
-									"value": "aliqua sed",
-									"description": "(Required) unqiue id of metanium room"
-								},
-								{
-									"key": "environment",
-									"value": "{{environment}}",
-									"description": " (This can only be one of partner-api,dev-partner-api)"
-								}
-							]
-						}
-					},
-					"response": [],
-					"variable": [
-						{
-							"id": "d06ce2e2-55f3-4a63-9883-371cc2831acd",
-							"key": "uniqueId",
-							"value": "aliqua sed",
-							"description": "(Required) unqiue id of metanium room"
-						},
-						{
-							"id": "3fe14bd8-a57b-41f9-b1fc-a21bf27579bb",
-							"key": "environment",
-							"value": "{{environment}}",
-							"description": " (This can only be one of partner-api,dev-partner-api)"
-						}
-					]
-				},
-				{
-					"name": "Join chat",
-					"id": "512d2a91-52d4-47c9-b64f-d20cee6a02d2",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/chats/:uniqueId/join",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chats",
-								":uniqueId",
-								"join"
-							],
-							"variable": [
-								{
-									"key": "uniqueId",
-									"value": "aliqua sed",
-									"description": "(Required) unqiue id of metanium room"
-								},
-								{
-									"key": "environment",
-									"value": "{{environment}}",
-									"description": " (This can only be one of partner-api,dev-partner-api)"
-								}
-							]
-						}
-					},
-					"response": [],
-					"variable": [
-						{
-							"id": "4fff921a-90fb-465f-ab5b-d2d743ea4867",
-							"key": "uniqueId",
-							"value": "aliqua sed",
-							"description": "(Required) unqiue id of metanium room"
-						},
-						{
-							"id": "2c9bd355-3025-489f-8891-01165449397b",
-							"key": "environment",
-							"value": "{{environment}}",
-							"description": " (This can only be one of partner-api,dev-partner-api)"
-						}
-					]
-				},
-				{
-					"name": "Delete chat",
-					"id": "3164c39c-ac60-4a76-b11b-25e544178297",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/chats/:uniqueId",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"chats",
-								":uniqueId"
-							],
-							"variable": [
-								{
-									"key": "uniqueId",
-									"value": "aliqua sed",
-									"description": "(Required) unqiue id of metanium room"
-								},
-								{
-									"key": "environment",
-									"value": "{{environment}}",
-									"description": " (This can only be one of partner-api,dev-partner-api)"
-								}
-							]
-						},
-						"description": "보드를 삭제합니다."
-					},
-					"response": []
-				}
-			],
-			"id": "3d9431ff-6b8d-484f-8d8f-13661d434f0d"
 		},
 		{
 			"name": "Create User or retrieve user",
@@ -1600,7 +1608,7 @@
 			],
 			"variable": [
 				{
-					"id": "7acb123d-aab0-4a25-85a5-3296804440f1",
+					"id": "4d764aeb-b8b4-4098-8d87-fa173e93e4d9",
 					"key": "environment",
 					"value": "{{environment}}",
 					"description": " (This can only be one of partner-api,dev-partner-api)"
@@ -1630,13 +1638,13 @@
 	},
 	"variable": [
 		{
-			"id": "7f4199ad-d246-4611-948d-8c6f3c4e4a2a",
+			"id": "da77b911-9e96-44c7-ac90-0fec562da218",
 			"key": "environment",
 			"value": "partner-api",
 			"description": " (This can only be one of partner-api,dev-partner-api)"
 		},
 		{
-			"id": "a64a4974-90c9-49a0-9df3-65d01bf96453",
+			"id": "bb4a26ae-e302-4c7d-b994-c19f21fededf",
 			"key": "baseUrl",
 			"value": "https://{{environment}}.momoboard.com/partners"
 		}
