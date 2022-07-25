@@ -3,11 +3,17 @@ info:
   title: Metanium Partner API
   description: |-
     모모보드와 메타니움간의 API연동을 위한 문서입니다.
+
     metaClientId : 메타니움의 클라이언트 아이디
+
     boardUniqueId: 메타니움의 게시판타입 룸 아이디
+
     chatUniqueId: 메타니움의 채팅타입 룸 아이디
-    '<img src="https://momoboard.github.io/Api-doc-partner/resources/client_process.jpg"/>'
-  version: 0.0.2
+
+    <img src="https://momoboard.github.io/Api-doc-partner/resources/process0.jpg"/>
+
+    <img src="https://momoboard.github.io/Api-doc-partner/resources/process1.jpg"/>
+  version: 0.0.3
 servers:
 - url: https://virtserver.swaggerhub.com/LeeKangHo/MetaniumPartnerAPI/0.0.2
   description: SwaggerHub API Auto Mocking
@@ -26,7 +32,7 @@ paths:
       tags:
       - boards
       summary: Create Board
-      description: "모모보드에 새로운 메인보드를 생성합니다. \n메타니움의 새로운 고객이 추가 될때 사용합니다. \nboardUniqueId는\
+      description: "모모보드에 새로운 메인보드를 생성합니다. \n\n메타니움의 새로운 고객이 추가 될때 사용합니다. \n\nboardUniqueId는\
         \ 메타니움의 클라이언트 ID(metaClientId) 입니다."
       requestBody:
         description: A JSON object containing board information
@@ -54,13 +60,25 @@ paths:
                 userUniqueId: masterUserId1234
                 description: connect metanium room
                 category: Arts_Entertainment
+        "401":
+          description: userUniqueId Not Found User
+          content:
+            application/json:
+              example:
+                boardUniqueId: Hyundai
+                name: Hyundai Futurenet
+                userUniqueId: '-------'
+                description: connect metanium room
+                category: Arts_Entertainment
   /boards/{uniqueId}:
     put:
       tags:
       - boards
       summary: Update board information
-      description: "보드 정보를 업데이트 합니다. \n메인보드일 경우 uniqueId는 metaClientId입니다.\n서브보드일\
-        \ 경우 uniqueId는 roomId입니다."
+      description: |-
+        보드 정보를 업데이트 합니다. </br>
+        메인보드일 경우 uniqueId는 metaClientId입니다.</br>
+        서브보드일 경우 uniqueId는 roomId입니다.
       parameters:
       - name: uniqueId
         in: path
@@ -98,8 +116,8 @@ paths:
       tags:
       - boards
       summary: Create sub board of metanium room
-      description: "모모보드에 서브 보드를 만듭니다. \n메타니움의 게시판타입의 룸을 만들때 호출 합니다.\nuniqueId는 metaClientId입\
-        니다."
+      description: "모모보드에 서브 보드를 만듭니다. \n\n메타니움의 게시판타입의 룸을 만들때 호출 합니다.\n\nuniqueId는\
+        \ metaClientId입니다."
       parameters:
       - name: uniqueId
         in: path
@@ -139,8 +157,10 @@ paths:
       tags:
       - boards
       summary: Delete board
-      description: "보드 정보를 삭제 합니다. \n메인보드일 경우 uniqueId는 metaClientId입니다.\n서브보드일 경우\
-        \ uniqueId는 roomId입니다."
+      description: |-
+        보드 정보를 삭제 합니다. </br>
+        메인보드일 경우 uniqueId는 metaClientId입니다.</br>
+        서브보드일 경우 uniqueId는 roomId입니다.
       parameters:
       - name: uniqueId
         in: path
@@ -158,7 +178,9 @@ paths:
       tags:
       - boards
       summary: Create chat of metanium room
-      description: "모모보드에 그룹 채팅방을 만듭니다. \n메타니움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다."
+      description: |-
+        모모보드에 그룹 채팅방을 만듭니다. </br>
+        메타니움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다.
       parameters:
       - name: uniqueId
         in: path
@@ -263,7 +285,7 @@ paths:
     put:
       tags:
       - users
-      summary: Join chat
+      summary: Join chat and Sign up
       parameters:
       - name: userUniqueId
         in: path
@@ -284,13 +306,10 @@ paths:
       responses:
         "200":
           description: OK
-          headers:
-            content-type:
-              style: simple
-              explode: false
+          content:
+            application/json:
               schema:
-                type: string
-                default: application/json
+                $ref: '#/components/schemas/EmebedResponse'
     delete:
       tags:
       - users
@@ -319,7 +338,7 @@ paths:
     put:
       tags:
       - users
-      summary: Join board
+      summary: Join board and Sign up
       parameters:
       - name: userUniqueId
         in: path
@@ -345,13 +364,10 @@ paths:
       responses:
         "200":
           description: OK
-          headers:
-            content-type:
-              style: simple
-              explode: false
+          content:
+            application/json:
               schema:
-                type: string
-                default: application/json
+                $ref: '#/components/schemas/EmebedResponse'
     delete:
       tags:
       - users
@@ -537,7 +553,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_3'
+                $ref: '#/components/schemas/EmebedResponse'
 components:
   schemas:
     Board:
@@ -626,6 +642,13 @@ components:
           description: unique id of metanium room
         name:
           type: string
+    EmebedResponse:
+      type: object
+      properties:
+        momoUrl:
+          type: string
+          description: uniqueURL for iframe
+          format: url
     boardUniqueId_join_body:
       type: object
       properties:
@@ -653,12 +676,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/inline_response_200_2_list'
-    inline_response_200_3:
-      type: object
-      properties:
-        momoUrl:
-          type: string
-          format: url
     inline_response_200_list:
       type: object
       properties:
