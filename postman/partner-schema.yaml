@@ -508,7 +508,7 @@ paths:
           description: OK
   /mappings/boards:
     get:
-      summary: get all boards of metanium room by page
+      summary: Get all boards of metanium room by page
       description: 모모보드와 메타리움간의 매핑된 보드 목록을 반환합니다.
       parameters:
         - name: offset
@@ -688,7 +688,7 @@ paths:
                     format: url
   /embed/users:
     get:
-      summary: check user if in the room
+      summary: Check user if in the room
       description: |
         사용자가 모모보드에 가입한 사용자인지 확인합니다.
       parameters:
