@@ -6,7 +6,7 @@ info:
     metaClientId : 메타니움의 클라이언트 아이디
     boardUniqueId: 메타니움의 게시판타입 룸 아이디
     chatUniqueId: 메타니움의 채팅타입 룸 아이디
-    '<img src="https://raw.githubusercontent.com/momoboard/Api-doc-partner/doc-0.0.2/resources/Client_Process.jpg?token=GHSAT0AAAAAABWS3EWRKRRJO5GYQJOAHTEWYW6JQVQ" />'
+    '<img src="https://momoboard.github.io/Api-doc-partner/resources/client_process.jpg"/>'
   version: 0.0.2
 servers:
 - url: https://virtserver.swaggerhub.com/LeeKangHo/MetaniumPartnerAPI/0.0.2
