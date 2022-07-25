@@ -251,7 +251,7 @@ paths:
           description: OK
   '/boards/{uniqueId}/join':
     put:
-      summary: join board
+      summary: Join board
       parameters:
         - name: uniqueId
           in: path
