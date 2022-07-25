@@ -1,0 +1,1978 @@
+{
+	"info": {
+		"_postman_id": "1879cf9e-8db2-4fe5-aa39-76a8f84aecdb",
+		"name": "Metanium Partner API",
+		"description": "모모보드와 메타니움간의 API연동을 위한 문서입니다.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "boards",
+			"item": [
+				{
+					"name": "{unique Id}",
+					"item": [
+						{
+							"name": "Create sub board of metanium room",
+							"id": "f6cb9865-2136-4ded-8a0b-01f65e99d374",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"boardUniqueId\": \"<string>\",\n \"name\": \"<string>\",\n \"category\": \"Health_Wellness\",\n \"description\": \"<string>\",\n \"profileImageUrl\": \"<url>\",\n \"backgroundImageUrl\": \"<url>\",\n \"userUniqueId\": \"magna do sunt\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/boards/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "<string>",
+											"description": "(Required) unqiue id of metanium client Id"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								},
+								"description": "모모보드에 서브 보드를 만듭니다. \n메타니움의 게시판타입의 룸을 만들때 호출 합니다.\nuniqueId는 metaClientId입니다."
+							},
+							"response": [
+								{
+									"id": "2c34477f-aff2-477d-b08a-b00bbb350fdd",
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"boardUniqueId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/boards/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"boards",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "<string>",
+													"description": "(Required) unqiue id of metanium client Id"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n \"boardUniqueId\": \"labore et sint in\",\n \"name\": \"Metanium room\",\n \"description\": \"connect metanium room\",\n \"category\": \"Arts_Entertainment\",\n \"userUniqueId\": \"magna do sunt\"\n}"
+								}
+							],
+							"variable": [
+								{
+									"id": "b9ed3543-169c-431e-a7a2-a43063a79f06",
+									"key": "uniqueId",
+									"value": "<string>",
+									"description": "(Required) unqiue id of metanium client Id"
+								},
+								{
+									"id": "9849c35b-2656-4b13-95db-c38522f03c52",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						},
+						{
+							"name": "Update board information",
+							"id": "aa8286c0-6b0d-4ead-a574-6d6c69dae61c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"id\": \"<string>\",\n \"boardUniqueId\": \"<string>\",\n \"userUniqueId\": \"magna do sunt\",\n \"name\": \"officia ipsum ad\",\n \"category\": \"Arts_Entertainment\",\n \"description\": \"adipisicing esse mollit laborum\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/boards/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "<string>",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								},
+								"description": "보드 정보를 업데이트 합니다. \n메인보드일 경우 uniqueId는 metaClientId입니다.\n서브보드일 경우 uniqueId는 roomId입니다."
+							},
+							"response": [
+								{
+									"id": "b3d2bdb8-e08c-44f6-a0f6-088acb07a8fa",
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"boardUniqueId\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/boards/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"boards",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "<string>",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n \"boardUniqueId\": \"labore et sint in\",\n \"name\": \"Metanium room\",\n \"description\": \"connect metanium room\",\n \"category\": \"Arts_Entertainment\",\n \"userUniqueId\": \"magna do sunt\"\n}"
+								}
+							],
+							"variable": [
+								{
+									"id": "b21e4fb2-8b3c-4b31-bf92-a81f43741aaa",
+									"key": "uniqueId",
+									"value": "<string>",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "a59f1dba-ec7a-4b29-8453-76b832bc2315",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						},
+						{
+							"name": "Delete board",
+							"id": "7e9f2063-451a-4ef1-ab05-12fc2d6c82f3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/boards/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "<string>",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								},
+								"description": "보드 정보를 삭제 합니다. \n메인보드일 경우 uniqueId는 metaClientId입니다.\n서브보드일 경우 uniqueId는 roomId입니다."
+							},
+							"response": [
+								{
+									"id": "c51db8b4-6263-4101-97f9-88fe6ad23aaf",
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/boards/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"boards",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "<string>",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							],
+							"variable": [
+								{
+									"id": "ab1ec238-6301-4c9c-a584-8d2681891068",
+									"key": "uniqueId",
+									"value": "<string>",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "9185ecd3-6a46-465e-9412-b0c41c393cae",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					],
+					"id": "f26e134f-3617-413f-b19b-940ffd80c7b7"
+				},
+				{
+					"name": "Create Board",
+					"id": "97f484b6-8e00-493e-b26e-c08637742cee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"metaClientId\": \"<string>\",\n \"name\": \"<string>\",\n \"category\": \"Company_Organization\",\n \"description\": \"<string>\",\n \"profileImageUrl\": \"<url>\",\n \"backgroundImageUrl\": \"<url>\",\n \"boardUniqueId\": \"Lorem aliquip ullamco\",\n \"userUniqueId\": \"magna do sunt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/boards",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"boards"
+							],
+							"variable": [
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						},
+						"description": "모모보드에 새로운 메인보드를 생성합니다. \n메타니움의 새로운 고객이 추가 될때 사용합니다. \nboardUniqueId는 메타니움의 클라이언트 ID(metaClientId) 입니다."
+					},
+					"response": [
+						{
+							"id": "1643e529-838d-4f06-91d4-dd379ff3d635",
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "X-API-Key",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"metaClientId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/boards",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"boards"
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n \"boardUniqueId\": \"labore et sint in\",\n \"name\": \"Metanium room\",\n \"description\": \"connect metanium room\",\n \"category\": \"Arts_Entertainment\",\n \"userUniqueId\": \"magna do sunt\"\n}"
+						}
+					],
+					"variable": [
+						{
+							"id": "6792de32-d806-406b-b71f-986c4346e797",
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				}
+			],
+			"id": "550b6845-d4da-4c0e-a1e4-7369db3f30d5"
+		},
+		{
+			"name": "chats",
+			"item": [
+				{
+					"name": "{unique Id}",
+					"item": [
+						{
+							"name": "Update chat information",
+							"id": "f1e8331e-3780-413c-957c-efd3dc3e8806",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"name\": \"<string>\",\n \"chatUniqueId\": \"vel\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/chats/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chats",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "<string>",
+											"description": "(Required) unqiue id of metanium room id"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": "(Required) unqiue id of metanium room id"
+										},
+										{
+											"key": "chatUniqueId",
+											"value": "ad id",
+											"description": "(Required) unqiue id of metanium room id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "fe0cb674-a9db-44d0-96e8-79a6a0718406",
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/chats/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"chats",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "<string>",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n \"boardUniqueId\": \"labore et sint in\",\n \"name\": \"Metanium room\",\n \"description\": \"connect metanium room\",\n \"category\": \"Arts_Entertainment\",\n \"chatUniqueId\": \"vel\"\n}"
+								}
+							],
+							"variable": [
+								{
+									"id": "80639a3f-7b74-451e-96f0-bc41619355b8",
+									"key": "uniqueId",
+									"value": "<string>",
+									"description": "(Required) unqiue id of metanium room id"
+								},
+								{
+									"id": "42ee805a-1232-49a3-b90c-64035027b1c3",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": "(Required) unqiue id of metanium room id"
+								},
+								{
+									"id": "e2f49c1c-386e-4ce3-9702-1c8119a58456",
+									"key": "chatUniqueId",
+									"value": "ad id",
+									"description": "(Required) unqiue id of metanium room id"
+								}
+							]
+						},
+						{
+							"name": "Delete chat",
+							"id": "6f586e86-1f55-491b-9c05-1731d1f7b31f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/chats/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chats",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "<string>",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "chatUniqueId",
+											"value": "ad id",
+											"description": "(Required) unqiue id of metanium room"
+										}
+									]
+								},
+								"description": "채팅을 삭제합니다."
+							},
+							"response": [
+								{
+									"id": "a59fccef-2a31-4cfd-b76d-ca57957c4f9f",
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/chats/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"chats",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "<string>",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							],
+							"variable": [
+								{
+									"id": "f8aacc96-acae-458a-9832-f0e5f0e170af",
+									"key": "uniqueId",
+									"value": "<string>",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "5462a8dd-b681-44dd-99d6-f948a7c67c9f",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "66246f63-98ae-46ff-b72a-5cc80457f240",
+									"key": "chatUniqueId",
+									"value": "ad id",
+									"description": "(Required) unqiue id of metanium room"
+								}
+							]
+						}
+					],
+					"id": "b316f593-0c6d-4010-9843-271b63fbec15"
+				}
+			],
+			"id": "62736f04-fc01-424f-8ad3-d870d48cb9d8"
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "chats/{unique Id}",
+					"item": [
+						{
+							"name": "Join chat",
+							"id": "a118e278-8276-4353-a617-1ed4195ad2dd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/chats/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"chats",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "<string>",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "chatUniqueId",
+											"value": "ad id",
+											"description": "(Required) unqiue id of metanium room"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "b5012d33-0faa-4f3a-a367-3cf0ef41f7df",
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userUniqueId\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/chats/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"chats",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "<string>",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							],
+							"variable": [
+								{
+									"id": "c91c530a-9fb8-4a3d-aa4a-d2d2cac56d4d",
+									"key": "uniqueId",
+									"value": "<string>",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "e6a6b3c9-ea57-4fca-9ab4-220f64633952",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "185171d7-2f49-4154-910c-a6ba58a26d4e",
+									"key": "chatUniqueId",
+									"value": "ad id",
+									"description": "(Required) unqiue id of metanium room"
+								}
+							]
+						},
+						{
+							"name": "Leave chat",
+							"id": "ebc1c9e7-71d6-4095-b52c-aba2ca3f0ba1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/chats/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"chats",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "<string>",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "chatUniqueId",
+											"value": "ad id",
+											"description": "(Required) unqiue id of metanium room"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "8ae66bbc-56e7-4320-a7a7-acd71720176b",
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/chats/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"chats",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "<string>",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							],
+							"variable": [
+								{
+									"id": "b4ed9ca9-53f1-42a4-8449-26357801befa",
+									"key": "uniqueId",
+									"value": "<string>",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "1dce583a-ae79-4447-a28c-c5d425e48968",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "35975f61-0844-47dd-baec-a344479936e2",
+									"key": "chatUniqueId",
+									"value": "ad id",
+									"description": "(Required) unqiue id of metanium room"
+								}
+							]
+						}
+					],
+					"id": "647bf591-9498-480e-aec9-d8c2458f0f1e"
+				},
+				{
+					"name": "boards/{unique Id}",
+					"item": [
+						{
+							"name": "Join board",
+							"id": "bb145929-eb85-4d62-994b-6115d6278c1b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/boards/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"boards",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "<string>",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "boardUniqueId",
+											"value": "ad id",
+											"description": "(Required) unqiue id of metanium room"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6b5e2fae-40f9-4330-95df-2cd861876ab0",
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userUniqueId\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/boards/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"boards",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "<string>",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							],
+							"variable": [
+								{
+									"id": "6aba4339-cd58-4db5-a2b5-a9694e2818a5",
+									"key": "uniqueId",
+									"value": "<string>",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "f332ce68-bc8d-45b7-9a53-353ee6e1783d",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "28215d00-a892-4b02-8f5c-88abb829f3fe",
+									"key": "boardUniqueId",
+									"value": "ad id",
+									"description": "(Required) unqiue id of metanium room"
+								}
+							]
+						},
+						{
+							"name": "Leave board",
+							"id": "a4498d02-3fc9-4b5d-929f-f5a61544a748",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/boards/:uniqueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										"boards",
+										":uniqueId"
+									],
+									"variable": [
+										{
+											"key": "uniqueId",
+											"value": "<string>",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": "(Required) unqiue id of metanium room"
+										},
+										{
+											"key": "boardUniqueId",
+											"value": "ad id",
+											"description": "(Required) unqiue id of metanium room"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "291cc982-1f45-48c8-83e8-0af54723375a",
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/boards/:uniqueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												"boards",
+												":uniqueId"
+											],
+											"variable": [
+												{
+													"key": "uniqueId",
+													"value": "<string>",
+													"description": "(Required) unqiue id of metanium room"
+												},
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							],
+							"variable": [
+								{
+									"id": "cc6d927f-4420-4d52-b016-e08ac76e9511",
+									"key": "uniqueId",
+									"value": "<string>",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "6ee6d921-2960-45f0-bb12-19308b4afad8",
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": "(Required) unqiue id of metanium room"
+								},
+								{
+									"id": "8f0a61db-a4e9-4730-a735-2efe01ca563a",
+									"key": "boardUniqueId",
+									"value": "ad id",
+									"description": "(Required) unqiue id of metanium room"
+								}
+							]
+						}
+					],
+					"id": "e5b00ca3-8466-4239-ae03-44bb94be4340"
+				},
+				{
+					"name": "Create User or retrieve user",
+					"id": "7038cd5e-68ad-467e-b3a6-6eec7d0875ad",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"userUniqueId\": \"<string>\",\n \"email\": \"P3XmF6@esiU.psah\",\n \"nickname\": \"<string>\",\n \"firstname\": \"<string>\",\n \"lastname\": \"<string>\",\n \"profileImageUrl\": \"<url>\",\n \"backgroundImageUrl\": \"<url>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"variable": [
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						},
+						"description": "파트너 사용자와 모모보드의 사용자를 맵핑하기 위한 API입니다. \n\n모모보드에 가입되어 있지 않은 사용자의 경우 모모보드에 가입을 시킨 후 파트너의 userUniqueId와 매핑을 시킵니다. \n\n이미 모모보드에 가입 되어 있는 email일 경우 기존 모모보드 사용자와 매핑을 합니다."
+					},
+					"response": [
+						{
+							"id": "932a5096-0b52-4148-afe5-5d4b78f92931",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "X-API-Key",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userUniqueId\": \"<string>\",\n  \"email\": \"<email>\",\n  \"nickname\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"id\": \"sunt do dolor dolor dolore\",\n  \"userUniqueId\": \"sed elit mollit enim\",\n  \"email\": \"LcCrlLw-LsBYOc@ZY.ejtr\",\n  \"nickname\": \"mollit sit sunt\",\n  \"firstname\": \"labore dolore incididunt Excepteur nostrud\",\n  \"lastname\": \"cup\",\n  \"profileImageUrl\": \"commodo Lorem\",\n  \"backgroundImageUrl\": \"laboris sed voluptate consequat\"\n}"
+						},
+						{
+							"id": "a2a7ac58-ae4b-4280-91cd-337fe2c343e3",
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "X-API-Key",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userUniqueId\": \"<string>\",\n  \"email\": \"<email>\",\n  \"nickname\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"profileImageUrl\": \"<url>\",\n  \"backgroundImageUrl\": \"<url>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"id\": \"sunt do dolor dolor dolore\",\n  \"userUniqueId\": \"sed elit mollit enim\",\n  \"email\": \"LcCrlLw-LsBYOc@ZY.ejtr\",\n  \"nickname\": \"mollit sit sunt\",\n  \"firstname\": \"labore dolore incididunt Excepteur nostrud\",\n  \"lastname\": \"cup\",\n  \"profileImageUrl\": \"commodo Lorem\",\n  \"backgroundImageUrl\": \"laboris sed voluptate consequat\"\n}"
+						}
+					],
+					"variable": [
+						{
+							"id": "2d5a619b-e9f1-4938-906e-e77fdbea670f",
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				}
+			],
+			"id": "a32272fc-c401-4578-b62b-6d91bec0d7fd"
+		},
+		{
+			"name": "mappings",
+			"item": [
+				{
+					"name": "list",
+					"item": [
+						{
+							"name": "Get all boards of metanium room by page",
+							"id": "faa72426-2928-4783-9bac-beea2f39bae6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/mappings/list/boards?offset=0&limit=50",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mappings",
+										"list",
+										"boards"
+									],
+									"query": [
+										{
+											"description": "The number of items to skip before starting to collect the result set",
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"description": "The numbers of items to return",
+											"key": "limit",
+											"value": "50"
+										}
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								},
+								"description": "모모보드와 메타니움간의 매핑된 보드 목록을 반환합니다."
+							},
+							"response": [
+								{
+									"id": "c8ccf48b-c45d-44b4-a9f8-7a4d2380c436",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mappings/list/boards?offset=0&limit=50",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mappings",
+												"list",
+												"boards"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "limit",
+													"value": "50"
+												}
+											],
+											"variable": [
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"list\": [\n    {\n      \"id\": \"mollit Ut exercitation reprehenderit enim\",\n      \"boardUniqueId\": \"aliquip dolore cupidatat\"\n    },\n    {\n      \"id\": \"dolore proident\",\n      \"boardUniqueId\": \"in\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get all chats of metanium room by page",
+							"id": "ca527ab1-7bc8-46b2-a241-61499ea4edbb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/mappings/list/chats?offset=0&limit=50",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mappings",
+										"list",
+										"chats"
+									],
+									"query": [
+										{
+											"description": "The number of items to skip before starting to collect the result set",
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"description": "The numbers of items to return",
+											"key": "limit",
+											"value": "50"
+										}
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								},
+								"description": "모모보드와 메타니움간의 매핑된 보드 목록을 반환합니다."
+							},
+							"response": [
+								{
+									"id": "4837f8c8-8fb6-413f-9f37-9c65a45c1869",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mappings/list/chats?offset=0&limit=50",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mappings",
+												"list",
+												"chats"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "limit",
+													"value": "50"
+												}
+											],
+											"variable": [
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"list\": [\n    {\n      \"id\": \"mollit Ut exercitation reprehenderit enim\",\n      \"boardUniqueId\": \"aliquip dolore cupidatat\"\n    },\n    {\n      \"id\": \"dolore proident\",\n      \"boardUniqueId\": \"in\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "get all users by page",
+							"id": "8dc8ccda-0395-473e-84d9-2782cfeccb49",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/mappings/list/users?offset=0&limit=50",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mappings",
+										"list",
+										"users"
+									],
+									"query": [
+										{
+											"description": "The number of items to skip before starting to collect the result set",
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"description": "The numbers of items to return",
+											"key": "limit",
+											"value": "50"
+										}
+									],
+									"variable": [
+										{
+											"key": "environment",
+											"value": "{{environment}}",
+											"description": " (This can only be one of partner-api,dev-partner-api)"
+										}
+									]
+								},
+								"description": "모모보드와 메타니움간의 매핑된 사용자 목록을 반환합니다."
+							},
+							"response": [
+								{
+									"id": "96bf9222-979c-4314-9f87-18a4a65259bd",
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "X-API-Key",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/mappings/list/users?offset=0&limit=50",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mappings",
+												"list",
+												"users"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "0"
+												},
+												{
+													"key": "limit",
+													"value": "50"
+												}
+											],
+											"variable": [
+												{
+													"key": "environment",
+													"value": "{{environment}}",
+													"description": " (This can only be one of partner-api,dev-partner-api)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"enabled": true
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"list\": [\n    {\n      \"id\": \"mollit Ut exercitation reprehenderit enim\",\n      \"boardUniqueId\": \"aliquip dolore cupidatat\"\n    },\n    {\n      \"id\": \"dolore proident\",\n      \"boardUniqueId\": \"in\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					],
+					"id": "b3630cb4-5fe8-4458-8107-035ad8ce68cb"
+				}
+			],
+			"id": "4f8952e7-fdb2-4b86-88e8-4606a16a4b3b"
+		},
+		{
+			"name": "Connect User",
+			"id": "46ecadf7-0439-4674-9bd4-88012fe6b730",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/embed/connect?boardUniqueId=<string>&userUniqueId=<string>",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"embed",
+						"connect"
+					],
+					"query": [
+						{
+							"description": "(Required) unqiue id of metanium room",
+							"key": "boardUniqueId",
+							"value": "<string>"
+						},
+						{
+							"description": "(Required) unqiue id of user",
+							"key": "userUniqueId",
+							"value": "<string>"
+						}
+					],
+					"variable": [
+						{
+							"key": "environment",
+							"value": "{{environment}}",
+							"description": " (This can only be one of partner-api,dev-partner-api)"
+						}
+					]
+				},
+				"description": "Connect user to momoboard, join the board when first time landing on the board. return iframe url to render\n"
+			},
+			"response": [
+				{
+					"id": "e1d90f77-c47f-497c-9ad4-37fb11873113",
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-API-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/embed/connect?boardUniqueId=<string>&userUniqueId=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"embed",
+								"connect"
+							],
+							"query": [
+								{
+									"key": "boardUniqueId",
+									"value": "<string>"
+								},
+								{
+									"key": "userUniqueId",
+									"value": "<string>"
+								}
+							],
+							"variable": [
+								{
+									"key": "environment",
+									"value": "{{environment}}",
+									"description": " (This can only be one of partner-api,dev-partner-api)"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"momoUrl\": \"exercitation aute ut v\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create chat of metanium room",
+			"id": "608ac8ea-ed66-48bb-82e8-472d286749a6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"chatUniqueId\": \"culpa et\",\n  \"name\": \"cupidatat amet est\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/boards/:uniqueId/chat",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"boards",
+						":uniqueId",
+						"chat"
+					],
+					"variable": [
+						{
+							"id": "bb2288ab-8a48-4564-8334-95351f3f2399",
+							"key": "uniqueId",
+							"value": "irure adipisicing dolor",
+							"description": "(Required) unqiue id of metaClientId"
+						}
+					]
+				},
+				"description": "모모보드에 그룹 채팅방을 만듭니다. \n메타니움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다."
+			},
+			"response": []
+		},
+		{
+			"name": "Update board mapping unique id to board",
+			"id": "1566ca88-2340-4dc1-a60b-8ca0bfed8ef0",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/mappings/boards",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mappings",
+						"boards"
+					]
+				},
+				"description": "기존에 매핑 된 roomId를 새로운 roomId로 변경합니다."
+			},
+			"response": []
+		},
+		{
+			"name": "Update board mapping unique id to chat",
+			"id": "51dc41d1-def3-44fc-8b2e-b9740b5ba75c",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/mappings/chats",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"mappings",
+						"chats"
+					]
+				},
+				"description": "기존에 매핑 된 roomId를 새로운 roomId로 변경합니다."
+			},
+			"response": [
+				{
+					"id": "a0db9cc0-d892-478a-993e-eccba0506076",
+					"name": "OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-API-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/mappings/chats",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"mappings",
+								"chats"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"list\": [\n    {\n      \"oldUniqueId\": \"aliquip Lorem quis\",\n      \"chatUniqueId\": \"sint ame\"\n    },\n    {\n      \"oldUniqueId\": \"aute\",\n      \"chatUniqueId\": \"Ut Excepteur\"\n    }\n  ]\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "<API Key>",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "869f6155-f4d2-4e52-96b3-496a19881798",
+			"key": "environment",
+			"value": "partner-api",
+			"description": " (This can only be one of partner-api,dev-partner-api)"
+		},
+		{
+			"id": "5a05a388-2763-48e7-8e47-2b941f8ef189",
+			"key": "baseUrl",
+			"value": "https://virtserver.swaggerhub.com/LeeKangHo/MetaniumPartnerAPI/0.0.2"
+		}
+	]
+}

@@ -1,10 +1,19 @@
-openapi: 3.0.2
+openapi: 3.0.4
 info:
   title: Metanium Partner API
   version: 0.0.2
-  description: 모모보드와 메타리움간의 API연동을 위한 문서입니다.
+  description: |-
+    모모보드와 메타니움간의 API연동을 위한 문서입니다.
+    metaClientId : 메타니움의 클라이언트 아이디
+    boardUniqueId: 메타니움의 게시판타입 룸 아이디
+    chatUniqueId: 메타니움의 채팅타입 룸 아이디
+    '<img src="https://raw.githubusercontent.com/momoboard/Api-doc-partner/doc-0.0.2/resources/Client_Process.jpg?token=GHSAT0AAAAAABWS3EWRKRRJO5GYQJOAHTEWYW6JQVQ" />'
+    
 servers:
-  - url: 'https://{environment}.momoboard.com/partners'
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/LeeKangHo/MetaniumPartnerAPI/0.0.2
+  - url: https://{environment}.momoboard.com/partners
     variables:
       environment:
         default: partner-api
@@ -12,8 +21,225 @@ servers:
           - partner-api
           - dev-partner-api
 paths:
+  /boards:
+    post:
+      tags: [
+        boards
+      ]
+      summary: Create Board
+      description: |-
+        모모보드에 새로운 메인보드를 생성합니다. 
+        메타니움의 새로운 고객이 추가 될때 사용합니다. 
+        boardUniqueId는 메타니움의 클라이언트 ID(metaClientId) 입니다.
+      requestBody:
+        description: A JSON object containing board information
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Board'
+            example:
+              boardUniqueId: Hyundai
+              userUniqueId: masterUserId1234
+              name: Hyundai Futurenet
+              description: connect metanium room
+              category: Arts_Entertainment
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Board'
+              example:
+                boardUniqueId: Hyundai
+                name: Hyundai Futurenet
+                userUniqueId: masterUserId1234
+                description: connect metanium room
+                category: Arts_Entertainment
+  /boards/{uniqueId}:
+    post:
+      tags: [
+        boards
+      ]
+      summary: Create sub board of metanium room
+      description: |-
+        모모보드에 서브 보드를 만듭니다. 
+        메타니움의 게시판타입의 룸을 만들때 호출 합니다.
+        uniqueId는 metaClientId입니다.
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metaClientId
+          required: true
+          schema:
+            type: string
+            
+      requestBody:
+        description: A JSON object containing board information
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Board'
+            example:
+              boardUniqueId: RoomId1234
+              userUniqueId: masterUserId1234
+              name: Room1
+              description: connect metanium room
+              category: Arts_Entertainment
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Board'
+              example:
+                boardUniqueId: RoomId1234
+                userUniqueId: masterUserId1234
+                name: Room1
+                description: connect metanium room
+                category: Arts_Entertainment
+    put:
+      tags: [
+        boards
+      ]
+      summary: Update board information
+      description: |-
+        보드 정보를 업데이트 합니다. 
+        메인보드일 경우 uniqueId는 metaClientId입니다.
+        서브보드일 경우 uniqueId는 roomId입니다.
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metaClientId or roomId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Board'
+      responses:
+        '200':
+          description: OK
+          headers:
+            content-type:
+              schema:
+                type: string
+                default: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Board'
+              example:
+                userUniqueId: masterUserId1234
+                name: Room1
+                description: connect metanium room
+                category: Arts_Entertainment
+    delete:
+      tags: [
+        boards
+      ]
+      summary: Delete board
+      description: |-
+        보드 정보를 삭제 합니다. 
+        메인보드일 경우 uniqueId는 metaClientId입니다.
+        서브보드일 경우 uniqueId는 roomId입니다.
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metaClientId or roomId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          
+  /boards/{uniqueId}/chat:
+    post:
+      tags: [
+        boards
+      ] 
+      parameters:
+        - name: uniqueId
+          in: path
+          description: unqiue id of metaClientId
+          required: true
+          schema:
+            type: string
+      summary: Create chat of metanium room
+      description: |-
+        모모보드에 그룹 채팅방을 만듭니다. 
+        메타니움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Chat'
+            example:
+              chatUniqueId: roomId1234
+              name: Chat Room1
+                      
+      responses:
+        '201':
+          description: OK
+  /chats/{chatUniqueId}:
+    put:
+      tags: [
+        chats
+      ]
+      summary: Update chat information
+      parameters:
+        - name: chatUniqueId
+          in: path
+          description: unqiue id of metanium room id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Chat'
+      responses:
+        '200':
+          description: OK
+          headers:
+            content-type:
+              schema:
+                type: string
+                default: application/json
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Chat'
+              example:
+                name: Metanium room
+    delete:
+      tags: [
+        chats
+      ]
+      summary: Delete chat
+      description: 채팅을 삭제합니다.
+      parameters:
+        - name: chatUniqueId
+          in: path
+          description: unqiue id of metanium room
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
   /users:
     post:
+      tags: [
+        users
+      ]
       summary: Create User or retrieve user
       description: |-
         파트너 사용자와 모모보드의 사용자를 맵핑하기 위한 API입니다. 
@@ -27,337 +253,28 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                userUniqueId:
-                  type: string
-                  description: metanium room unique id
-                email:
-                  type: string
-                  format: email
-                nickname:
-                  type: string
-                firstname:
-                  type: string
-                lastname:
-                  type: string
-                profileImageUrl:
-                  type: string
-                  format: url
-                backgroundImageUrl:
-                  type: string
-                  format: url
-              required:
-                - userUniqueId
-                - email
-                - nickname
-                - firstname
-                - lastname
+              $ref: '#/components/schemas/User'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  userUniqueId:
-                    type: string
-                    description: unique id of metanium user
-                  email:
-                    type: string
-                    format: email
-                  nickname:
-                    type: string
-                  firstname:
-                    type: string
-                  lastname:
-                    type: string
-                  profileImageUrl:
-                    type: string
-                    format: url
-                  backgroundImageUrl:
-                    type: string
-                    format: url
+                $ref: '#/components/schemas/User'
         '201':
           description: Created
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  userUniqueId:
-                    type: string
-                    description: unique id of metanium user
-                  email:
-                    type: string
-                    format: email
-                  nickname:
-                    type: string
-                  firstname:
-                    type: string
-                  lastname:
-                    type: string
-                  profileImageUrl:
-                    type: string
-                    format: url
-                  backgroundImageUrl:
-                    type: string
-                    format: url
-  /boards:
-    post:
-      summary: Create Board
-      description: |-
-        모모보드에 새로운 메인보드를 생성합니다. 
-
-        메타리움의 새로운 고객이 추가 될때 사용합니다. 
-
-         uniqueId와 모모보드의 보드를 매핑합니다.
-      requestBody:
-        description: A JSON object containing board information
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                boardUniqueId:
-                  type: string
-                  description: board name
-                name:
-                  type: string
-                  description: board name
-                description:
-                  type: string
-                category:
-                  type: string
-                  enum:
-                    - Arts_Entertainment
-                    - Business_Finance
-                    - Company_Organization
-                    - Computers_Internet
-                    - Education_Universities
-                    - Family_Parenting
-                    - Fashion_Beauty
-                    - Food_Beverage
-                    - Games_Animations
-                    - Health_Wellness
-                    - Hobby_Crafts
-                    - Local_Life
-                    - Pets_Wild_Animals
-                    - Professional_Specialist
-                    - Religion_Faith
-                    - Science_Technology
-                    - Social_Cultural
-                    - Sports_Recreation
-                    - Travel_Leisure
-                profileImageUrl:
-                  type: string
-                  format: url
-                backgroundImageUrl:
-                  type: string
-                  format: url
-              required:
-                - boardUniqueId
-                - name
-                - category
-                - description
-              example:
-                boardUniqueId: 1234
-                name: Metanium room
-                description: connect metanium room
-                category: Arts_Entertainment
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: momo board board id
-                  boardUniqueId:
-                    type: string
-                    description: unique id of metanium room
-              example:
-                boardUniqueId: 1234
-                name: Metanium room
-                description: connect metanium room
-                category: Arts_Entertainment
-  '/boards/{uniqueId}':
+                $ref: '#/components/schemas/User'
+  /users/chats/{chatUniqueId}:
     put:
-      summary: Update board information
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: momo board board id
-                boardUniqueId:
-                  type: string
-                  description: unique id of metanium room
-      responses:
-        '200':
-          description: OK
-          headers: 
-            content-type: 
-              schema:
-                type: string
-                default: application/json
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: momo board board id
-                  boardUniqueId:
-                    type: string
-                    description: unique id of metanium room
-              example:
-                boardUniqueId: 1234
-                name: Metanium room
-                description: connect metanium room
-                category: Arts_Entertainment
-    delete:
-      summary: Delete board
-      description: 보드를 삭제합니다.
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-  '/boards/{uniqueId}/join':
-    put:
-      summary: Join board
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                userUniqueId:
-                  type: string
-                  description: unqiue id of metanium user
-      responses:
-        '200':
-          description: OK
-          headers: 
-            content-type: 
-              schema:
-                type: string
-                default: application/json
-    delete:
-      summary: Leave board
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                userUniqueId:
-                  type: string
-                  description: unqiue id of metanium user      
-      responses:
-        '200':
-          description: OK  
-  '/chats/{uniqueId}':
-    put:
-      summary: Update chat information
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: momo board chat name
-      responses:
-        '200':
-          description: OK
-          headers: 
-            content-type: 
-              schema:
-                type: string
-                default: application/json
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: momo board board id
-                  boardUniqueId:
-                    type: string
-                    description: unique id of metanium room
-              example:
-                boardUniqueId: 1234
-                name: Metanium room
-                description: connect metanium room
-                category: Arts_Entertainment
-    delete:
-      summary: Delete chat
-      description: 보드를 삭제합니다.
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK      
-  '/chats/{uniqueId}/join':
-    put:
+      tags: [
+        users
+      ]
       summary: Join chat
       parameters:
-        - name: uniqueId
+        - name: chatUniqueId
           in: path
           description: unqiue id of metanium room
           required: true
@@ -375,15 +292,34 @@ paths:
       responses:
         '200':
           description: OK
-          headers: 
-            content-type: 
+          headers:
+            content-type:
               schema:
                 type: string
                 default: application/json
     delete:
+      tags: [
+        users
+      ]
       summary: Leave chat
       parameters:
-        - name: uniqueId
+        - name: chatUniqueId
+          in: path
+          description: unqiue id of metanium room
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+  /users/boards/{boardUniqueId}:
+    put:
+      tags: [
+        users
+      ]
+      summary: Join board
+      parameters:
+        - name: boardUniqueId
           in: path
           description: unqiue id of metanium room
           required: true
@@ -397,119 +333,37 @@ paths:
               properties:
                 userUniqueId:
                   type: string
-                  description: unqiue id of metanium user      
+                  description: unqiue id of metanium user
       responses:
         '200':
           description: OK
-                        
-  '/boards/{uniqueId}/boards':
-    post:
-      summary: Create sub board of metanium room
-      description: |-
-        모모보드에 서브 보드를 만듭니다. 
-
-        메타리움에서 새로운 게시판 형태의 Room이 추가 될때 요청합니다.
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room
-          required: true
-          schema:
-            type: string
-      requestBody:
-        description: A JSON object containing board information
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                boardUniqueId:
-                  type: string
-                  description: board name
-                name:
-                  type: string
-                  description: board name
-                description:
-                  type: string
-                category:
-                  type: string
-                  enum:
-                    - Arts_Entertainment
-                    - Business_Finance
-                    - Company_Organization
-                    - Computers_Internet
-                    - Education_Universities
-                    - Family_Parenting
-                    - Fashion_Beauty
-                    - Food_Beverage
-                    - Games_Animations
-                    - Health_Wellness
-                    - Hobby_Crafts
-                    - Local_Life
-                    - Pets_Wild_Animals
-                    - Professional_Specialist
-                    - Religion_Faith
-                    - Science_Technology
-                    - Social_Cultural
-                    - Sports_Recreation
-                    - Travel_Leisure
-                profileImageUrl:
-                  type: string
-                  format: url
-                backgroundImageUrl:
-                  type: string
-                  format: url
-              required:
-                - boardUniqueId
-                - name
-                - category
-                - description
-              example:
-                boardUniqueId: 1234
-                name: Metanium room
-                description: connect metanium room
-                category: Arts_Entertainment
-      responses:
-        '201':
-          description: OK
-          content:
-            application/json:
+          headers:
+            content-type:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: momo board board id
-                  boardUniqueId:
-                    type: string
-                    description: unique id of metanium room
-              example:
-                boardUniqueId: 1234
-                name: Metanium room
-                description: connect metanium room
-                category: Arts_Entertainment
-  '/boards/{uniqueId}/chats':
-    post:
-      summary: Create chat of metanium room
-      description: |-
-        모모보드에 그룹 채팅방을 만듭니다. 
-
-        메타리움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다.
+                type: string
+                default: application/json
+    delete:
+      tags: [
+        users
+      ]
+      summary: Leave board
       parameters:
-        - name: uniqueId
+        - name: boardUniqueId
           in: path
           description: unqiue id of metanium room
           required: true
           schema:
             type: string
       responses:
-        '201':
+        '200':
           description: OK
-  /mappings/boards:
+  /mappings/list/boards:
     get:
+      tags: [
+        mapping
+      ]
       summary: Get all boards of metanium room by page
-      description: 모모보드와 메타리움간의 매핑된 보드 목록을 반환합니다.
+      description: 모모보드와 메타니움간의 매핑된 보드 목록을 반환합니다.
       parameters:
         - name: offset
           in: query
@@ -543,60 +397,128 @@ paths:
                         id:
                           type: string
                           description: momo board board id
+                        boardUniqueId:
+                          type: string
+                          description: unique id of metanium room
+  /mappings/list/chats:
+    get:
+      tags: [
+        mapping
+      ]
+      summary: Get all chats of metanium room by page
+      description: 모모보드와 메타니움간의 매핑된 보드 목록을 반환합니다.
+      parameters:
+        - name: offset
+          in: query
+          description: >-
+            The number of items to skip before starting to collect the result
+            set
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: limit
+          in: query
+          description: The numbers of items to return
+          schema:
+            type: integer
+            maximum: 100
+            default: 50
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: momo board board id
+                        boardUniqueId:
+                          type: string
+                          description: unique id of metanium room
+  /mappings/list/users:
+    get:
+      tags: [
+        mapping
+      ]
+      summary: get all users by page
+      description: 모모보드와 메타니움간의 매핑된 사용자 목록을 반환합니다.
+      parameters:
+        - name: offset
+          in: query
+          description: >-
+            The number of items to skip before starting to collect the result
+            set
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: limit
+          in: query
+          description: The numbers of items to return
+          schema:
+            type: integer
+            maximum: 100
+            default: 50
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: momo board board id
+                        boardUniqueId:
+                          type: string
+                          description: unique id of metanium room
+  /mappings/boards:
+    put:
+      tags: [
+        mapping
+      ]
+      summary: Update board mapping unique id to board
+      description: 기존에 매핑 된 roomId를 새로운 roomId로 변경합니다.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        oldUniqueId:
+                          type: string
+                          description: RoomId before change
                         boardUniqueId:
                           type: string
                           description: unique id of metanium room
   /mappings/chats:
-    get:
-      summary: Get all chats of metanium room by page
-      description: 모모보드와 메타리움간의 매핑된 보드 목록을 반환합니다.
-      parameters:
-        - name: offset
-          in: query
-          description: >-
-            The number of items to skip before starting to collect the result
-            set
-          schema:
-            type: integer
-            minimum: 0
-            default: 0
-        - name: limit
-          in: query
-          description: The numbers of items to return
-          schema:
-            type: integer
-            maximum: 100
-            default: 50
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  list:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          description: momo board board id
-                        boardUniqueId:
-                          type: string
-                          description: unique id of metanium room                        
-  '/mappings/boards/{uniqueId}':
     put:
-      summary: Update board mapping unique id to board
+      tags: [
+        mapping
+      ]
+      summary: Update board mapping unique id to chat
       description: 기존에 매핑 된 roomId를 새로운 roomId로 변경합니다.
-      parameters:
-        - name: uniqueId
-          in: path
-          description: unqiue id of metanium room
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: OK
@@ -610,57 +532,21 @@ paths:
                     items:
                       type: object
                       properties:
-                        id:
+                        oldUniqueId:
                           type: string
-                          description: momo board board id
-                        boardUniqueId:
-                          type: string
-                          description: unique id of metanium room                       
-  /mappings/users:
-    get:
-      summary: get all users by page
-      description: 모모보드와 메타리움간의 매핑된 사용자 목록을 반환합니다.
-      parameters:
-        - name: offset
-          in: query
-          description: >-
-            The number of items to skip before starting to collect the result
-            set
-          schema:
-            type: integer
-            minimum: 0
-            default: 0
-        - name: limit
-          in: query
-          description: The numbers of items to return
-          schema:
-            type: integer
-            maximum: 100
-            default: 50
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  list:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          description: momo board board id
-                        boardUniqueId:
+                          description: RoomId before change
+                        chatUniqueId:
                           type: string
                           description: unique id of metanium room
   /embed/connect:
     get:
+      tags: [
+        embed
+      ]
       summary: Connect User
       description: >
-        Connect user to momoboard, join the board when first time landing on the board. return iframe url to render
+        Connect user to momoboard, join the board when first time landing on the
+        board. return iframe url to render
       parameters:
         - name: boardUniqueId
           in: query
@@ -685,23 +571,6 @@ paths:
                   momoUrl:
                     type: string
                     format: url
-  /embed/users:
-    get:
-      summary: Check user if in the room
-      description: |
-        사용자가 모모보드에 가입한 사용자인지 확인합니다.
-      parameters:
-        - name: uniqueId
-          in: query
-          description: unqiue id of user
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-        '404':
-          description: NOT FOUND
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -810,19 +679,62 @@ components:
               - lastname
   schemas:
     Board:
+      required:
+        - boardUniqueId
+        - userUniqueId
+        - name
+        - category
+        - description
       type: object
       properties:
-        id:
-          type: string
-          description: momo board board id
         boardUniqueId:
           type: string
-          description: unique id of metanium room
+          description: unique id of metanium room id
+        userUniqueId:
+          type: string
+          description: unique id of metanium user id
+        name:
+          type: string
+          description: board name
+        description:
+          type: string
+        category:
+          type: string
+          enum:
+            - Arts_Entertainment
+            - Business_Finance
+            - Company_Organization
+            - Computers_Internet
+            - Education_Universities
+            - Family_Parenting
+            - Fashion_Beauty
+            - Food_Beverage
+            - Games_Animations
+            - Health_Wellness
+            - Hobby_Crafts
+            - Local_Life
+            - Pets_Wild_Animals
+            - Professional_Specialist
+            - Religion_Faith
+            - Science_Technology
+            - Social_Cultural
+            - Sports_Recreation
+            - Travel_Leisure
+        profileImageUrl:
+          type: string
+          format: url
+        backgroundImageUrl:
+          type: string
+          format: url
     User:
+      required:
+        - userUniqueId
+        - email
+        - nickname
+        - firstname
+        - lastname
       type: object
       properties:
-        id:
-          type: string
         userUniqueId:
           type: string
           description: unique id of metanium user
@@ -841,5 +753,16 @@ components:
         backgroundImageUrl:
           type: string
           format: url
+    Chat:
+      required:
+        - chatUniqueId
+        - name
+      type: object
+      properties:
+        chatUniqueId:
+          type: string
+          description: unique id of metanium room
+        name:
+          type: string
 security:
   - ApiKeyAuth: []
