@@ -157,7 +157,6 @@ paths:
     post:
       tags:
       - boards
-      - chats
       summary: Create chat of metanium room
       description: "모모보드에 그룹 채팅방을 만듭니다. \n메타니움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다."
       parameters:
