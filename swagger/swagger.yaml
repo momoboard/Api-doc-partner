@@ -6,7 +6,7 @@ info:
     metaClientId : 메타니움의 클라이언트 아이디
     boardUniqueId: 메타니움의 게시판타입 룸 아이디
     chatUniqueId: 메타니움의 채팅타입 룸 아이디
-    '<img src="https://raw.githubusercontent.com/momoboard/Api-doc-partner/doc-0.0.2/resources/Client_Process.jpg?token=GHSAT0AAAAAABWS3EWRKRRJO5GYQJOAHTEWYW6JQVQ" />'
+    '<img src="https://momoboard.github.io/Api-doc-partner/resources/client_process.jpg"/>'
   version: 0.0.2
 servers:
 - url: https://virtserver.swaggerhub.com/LeeKangHo/MetaniumPartnerAPI/0.0.2
@@ -157,7 +157,6 @@ paths:
     post:
       tags:
       - boards
-      - chats
       summary: Create chat of metanium room
       description: "모모보드에 그룹 채팅방을 만듭니다. \n메타니움에서 새로운 채팅 형태의 Room이 추가 될때 요청합니다."
       parameters:
@@ -260,25 +259,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-  /users/chats/{chatUniqueId}:
+  /users/{userUniqueId}/chats/{chatUniqueId}/join:
     put:
       tags:
       - users
       summary: Join chat
       parameters:
-      - name: chatUniqueId
+      - name: userUniqueId
         in: path
-        description: unqiue id of metanium room
+        description: unqiue id of metanium user
         required: true
         style: simple
         explode: false
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/chats_chatUniqueId_body'
+      - name: chatUniqueId
+        in: path
+        description: unqiue id of metanium roomId
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       responses:
         "200":
           description: OK
@@ -294,9 +296,17 @@ paths:
       - users
       summary: Leave chat
       parameters:
+      - name: userUniqueId
+        in: path
+        description: unqiue id of metanium user
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       - name: chatUniqueId
         in: path
-        description: unqiue id of metanium room
+        description: unqiue id of metanium roomId
         required: true
         style: simple
         explode: false
@@ -305,12 +315,20 @@ paths:
       responses:
         "200":
           description: OK
-  /users/boards/{boardUniqueId}:
+  /users/{userUniqueId}/boards/{boardUniqueId}/join:
     put:
       tags:
       - users
       summary: Join board
       parameters:
+      - name: userUniqueId
+        in: path
+        description: unqiue id of metanium user
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       - name: boardUniqueId
         in: path
         description: unqiue id of metanium room
@@ -323,7 +341,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/boards_boardUniqueId_body'
+              $ref: '#/components/schemas/boardUniqueId_join_body'
       responses:
         "200":
           description: OK
@@ -339,6 +357,14 @@ paths:
       - users
       summary: Leave board
       parameters:
+      - name: userUniqueId
+        in: path
+        description: unqiue id of metanium user
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       - name: boardUniqueId
         in: path
         description: unqiue id of metanium room
@@ -600,13 +626,7 @@ components:
           description: unique id of metanium room
         name:
           type: string
-    chats_chatUniqueId_body:
-      type: object
-      properties:
-        userUniqueId:
-          type: string
-          description: unqiue id of metanium user
-    boards_boardUniqueId_body:
+    boardUniqueId_join_body:
       type: object
       properties:
         userUniqueId:
