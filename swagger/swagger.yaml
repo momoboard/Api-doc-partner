@@ -13,7 +13,7 @@ info:
     <img src="https://momoboard.github.io/Api-doc-partner/resources/process0.jpg"/>
 
     <img src="https://momoboard.github.io/Api-doc-partner/resources/process1.jpg"/>
-  version: 0.0.3
+  version: 0.0.4
 servers:
 - url: https://virtserver.swaggerhub.com/LeeKangHo/MetaniumPartnerAPI/0.0.2
   description: SwaggerHub API Auto Mocking
@@ -685,7 +685,6 @@ components:
         boardUniqueId:
           type: string
           description: unique id of metanium room
-      example: null
     inline_response_200_1_list:
       type: object
       properties:
@@ -695,7 +694,6 @@ components:
         boardUniqueId:
           type: string
           description: unique id of metanium room
-      example: null
     inline_response_200_2_list:
       type: object
       properties:
@@ -705,7 +703,6 @@ components:
         chatUniqueId:
           type: string
           description: unique id of metanium room
-      example: null
   requestBodies:
     Board:
       description: A JSON object containing board information
