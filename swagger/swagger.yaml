@@ -685,7 +685,6 @@ components:
         boardUniqueId:
           type: string
           description: unique id of metanium room
-      example: null
     inline_response_200_1_list:
       type: object
       properties:
@@ -695,7 +694,6 @@ components:
         boardUniqueId:
           type: string
           description: unique id of metanium room
-      example: null
     inline_response_200_2_list:
       type: object
       properties:
@@ -705,7 +703,6 @@ components:
         chatUniqueId:
           type: string
           description: unique id of metanium room
-      example: null
   requestBodies:
     Board:
       description: A JSON object containing board information
