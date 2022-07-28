@@ -177,6 +177,7 @@ paths:
     post:
       tags:
       - boards
+      - chats
       summary: Create chat of metanium room
       description: |-
         모모보드에 그룹 채팅방을 만듭니다. </br>
@@ -197,6 +198,7 @@ paths:
               $ref: '#/components/schemas/Chat'
             example:
               chatUniqueId: roomId1234
+              userUniqueId: user1234
               name: Chat Room1
       responses:
         "201":
@@ -281,6 +283,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+  /users/{userUniqueId}/logout:
+    post:
+      tags:
+      - users
+      summary: User Logout
+      parameters:
+      - name: userUniqueId
+        in: path
+        description: unqiue id of metanium user
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      description: "로그아웃"
+      responses:
+        "200":
+          description: OK
+                                
   /users/{userUniqueId}/chats/{chatUniqueId}/join:
     put:
       tags:
@@ -533,7 +554,19 @@ paths:
       parameters:
       - name: boardUniqueId
         in: query
-        description: unqiue id of metanium room
+        description: |
+          unqiue id of metanium room 
+          (boardUniqueId or chatUniqueId)
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: chatUniqueId
+        in: query
+        description: |
+          unqiue id of metanium room 
+          (boardUniqueId or chatUniqueId)
         required: true
         style: form
         explode: true
@@ -634,12 +667,16 @@ components:
     Chat:
       required:
       - chatUniqueId
+      - userUniqueId
       - name
       type: object
       properties:
         chatUniqueId:
           type: string
           description: unique id of metanium room
+        userUniqueId:
+          type: string
+          description: unique id of metanium user
         name:
           type: string
     EmebedResponse:
