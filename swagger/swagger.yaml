@@ -15,9 +15,10 @@ info:
     <img src="https://momoboard.github.io/Api-doc-partner/resources/process1.jpg"/>
   version: 0.0.4
 servers:
-- url: https://virtserver.swaggerhub.com/LeeKangHo/MetaniumPartnerAPI/0.0.2
-  description: SwaggerHub API Auto Mocking
+- url: "https://4fhywdz4zb.execute-api.us-east-1.amazonaws.com/pr-partner/partners"
+  description: MOMO Dev API
 - url: "https://{environment}.momoboard.com/partners"
+  description: MOMO Partner API
   variables:
     environment:
       enum:
