@@ -15,8 +15,6 @@ info:
     <img src="https://momoboard.github.io/Api-doc-partner/resources/process1.jpg"/>
   version: 0.0.4
 servers:
-- url: "https://4fhywdz4zb.execute-api.us-east-1.amazonaws.com/pr-partner/partners"
-  description: MOMO Dev API
 - url: "https://{environment}.momoboard.com/partners"
   description: MOMO Partner API
   variables:
@@ -289,6 +287,7 @@ paths:
       tags:
       - users
       summary: User Logout
+      description: 로그아웃
       parameters:
       - name: userUniqueId
         in: path
@@ -298,11 +297,9 @@ paths:
         explode: false
         schema:
           type: string
-      description: "로그아웃"
       responses:
         "200":
           description: OK
-                                
   /users/{userUniqueId}/chats/{chatUniqueId}/join:
     put:
       tags:
@@ -555,9 +552,7 @@ paths:
       parameters:
       - name: boardUniqueId
         in: query
-        description: |
-          unqiue id of metanium room 
-          (boardUniqueId or chatUniqueId)
+        description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
         required: true
         style: form
         explode: true
@@ -565,9 +560,7 @@ paths:
           type: string
       - name: chatUniqueId
         in: query
-        description: |
-          unqiue id of metanium room 
-          (boardUniqueId or chatUniqueId)
+        description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
         required: true
         style: form
         explode: true
@@ -668,8 +661,8 @@ components:
     Chat:
       required:
       - chatUniqueId
-      - userUniqueId
       - name
+      - userUniqueId
       type: object
       properties:
         chatUniqueId:
