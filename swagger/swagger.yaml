@@ -13,7 +13,7 @@ info:
     <img src="https://momoboard.github.io/Api-doc-partner/resources/process0.jpg"/>
 
     <img src="https://momoboard.github.io/Api-doc-partner/resources/process1.jpg"/>
-  version: 0.0.4
+  version: 0.0.5
 servers:
 - url: "https://{environment}.momoboard.com/partners"
   description: MOMO Partner API
@@ -553,7 +553,7 @@ paths:
       - name: boardUniqueId
         in: query
         description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
-        required: true
+        required: false
         style: form
         explode: true
         schema:
