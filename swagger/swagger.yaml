@@ -15,9 +15,8 @@ info:
     <img src="https://momoboard.github.io/Api-doc-partner/resources/process1.jpg"/>
   version: 0.0.4
 servers:
-- url: https://virtserver.swaggerhub.com/LeeKangHo/MetaniumPartnerAPI/0.0.2
-  description: SwaggerHub API Auto Mocking
 - url: "https://{environment}.momoboard.com/partners"
+  description: MOMO Partner API
   variables:
     environment:
       enum:
@@ -177,6 +176,7 @@ paths:
     post:
       tags:
       - boards
+      - chats
       summary: Create chat of metanium room
       description: |-
         모모보드에 그룹 채팅방을 만듭니다. </br>
@@ -197,6 +197,7 @@ paths:
               $ref: '#/components/schemas/Chat'
             example:
               chatUniqueId: roomId1234
+              userUniqueId: user1234
               name: Chat Room1
       responses:
         "201":
@@ -281,6 +282,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+  /users/{userUniqueId}/logout:
+    post:
+      tags:
+      - users
+      summary: User Logout
+      description: 로그아웃
+      parameters:
+      - name: userUniqueId
+        in: path
+        description: unqiue id of metanium user
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
   /users/{userUniqueId}/chats/{chatUniqueId}/join:
     put:
       tags:
@@ -533,7 +552,15 @@ paths:
       parameters:
       - name: boardUniqueId
         in: query
-        description: unqiue id of metanium room
+        description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: chatUniqueId
+        in: query
+        description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
         required: true
         style: form
         explode: true
@@ -635,11 +662,15 @@ components:
       required:
       - chatUniqueId
       - name
+      - userUniqueId
       type: object
       properties:
         chatUniqueId:
           type: string
           description: unique id of metanium room
+        userUniqueId:
+          type: string
+          description: unique id of metanium user
         name:
           type: string
     EmebedResponse:
