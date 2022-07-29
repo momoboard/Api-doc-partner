@@ -561,7 +561,7 @@ paths:
       - name: chatUniqueId
         in: query
         description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
-        required: true
+        required: false
         style: form
         explode: true
         schema:
