@@ -517,26 +517,32 @@ paths:
       - mapping
       summary: Update board mapping unique id to board
       description: 기존에 매핑 된 roomId를 새로운 roomId로 변경합니다.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mappings_boards_body'
       responses:
         "200":
           description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200_1'
   /mappings/chats:
     put:
       tags:
       - mapping
       summary: Update board mapping unique id to chat
       description: 기존에 매핑 된 roomId를 새로운 roomId로 변경합니다.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mappings_chats_body'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_2'
+                $ref: '#/components/schemas/mappings_chats_body'
   /embed/connect:
     get:
       tags:
@@ -681,12 +687,6 @@ components:
           type: string
           description: uniqueURL for iframe
           format: url
-    boardUniqueId_join_body:
-      type: object
-      properties:
-        userUniqueId:
-          type: string
-          description: unqiue id of metanium user
     inline_response_200:
       type: object
       properties:
@@ -694,20 +694,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/inline_response_200_list'
-    inline_response_200_1:
-      type: object
-      properties:
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/inline_response_200_1_list'
-    inline_response_200_2:
-      type: object
-      properties:
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/inline_response_200_2_list'
     inline_response_200_list:
       type: object
       properties:
@@ -717,7 +703,7 @@ components:
         boardUniqueId:
           type: string
           description: unique id of metanium room
-    inline_response_200_1_list:
+    mappings_boards_body:
       type: object
       properties:
         oldUniqueId:
@@ -726,13 +712,13 @@ components:
         boardUniqueId:
           type: string
           description: unique id of metanium room
-    inline_response_200_2_list:
+    mappings_chats_body:
       type: object
       properties:
         oldUniqueId:
           type: string
           description: RoomId before change
-        chatUniqueId:
+        boardUniqueId:
           type: string
           description: unique id of metanium room
   requestBodies:
