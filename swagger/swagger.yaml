@@ -680,6 +680,12 @@ components:
           description: unique id of metanium user
         name:
           type: string
+        appearance:
+          type: string
+          enum:
+          - light
+          - dark
+          - system
     EmebedResponse:
       type: object
       properties:
