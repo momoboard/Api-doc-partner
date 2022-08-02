@@ -13,7 +13,7 @@ info:
     <img src="https://momoboard.github.io/Api-doc-partner/resources/process0.jpg"/>
 
     <img src="https://momoboard.github.io/Api-doc-partner/resources/process1.jpg"/>
-  version: 0.0.5
+  version: 0.0.6
 servers:
 - url: "https://{environment}.momoboard.com/partners"
   description: MOMO Partner API
@@ -375,11 +375,6 @@ paths:
         explode: false
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/boardUniqueId_join_body'
       responses:
         "200":
           description: OK
@@ -625,6 +620,12 @@ components:
           - Social_Cultural
           - Sports_Recreation
           - Travel_Leisure
+        appearance:
+          type: string
+          enum:
+          - light
+          - dark
+          - system
         profileImageUrl:
           type: string
           format: url
