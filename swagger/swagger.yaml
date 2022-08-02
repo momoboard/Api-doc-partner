@@ -45,6 +45,7 @@ paths:
               name: Hyundai Futurenet
               description: connect metanium room
               category: Arts_Entertainment
+              appearance: dark
         required: true
       responses:
         "201":
@@ -199,6 +200,7 @@ paths:
               chatUniqueId: roomId1234
               userUniqueId: user1234
               name: Chat Room1
+              appearance: dark
       responses:
         "201":
           description: OK
