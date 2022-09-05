@@ -726,7 +726,7 @@ components:
         oldUniqueId:
           type: string
           description: RoomId before change
-        boardUniqueId:
+        chatUniqueId:
           type: string
           description: unique id of metanium room
   requestBodies:
