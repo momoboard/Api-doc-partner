@@ -546,7 +546,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/mappings_chats_body'
   /embed/connect:
-    get:
+    post:
       tags:
       - embed
       summary: Connect User
