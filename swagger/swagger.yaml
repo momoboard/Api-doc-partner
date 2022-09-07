@@ -552,31 +552,11 @@ paths:
       summary: Connect User
       description: |
         Connect user to momoboard, join the board when first time landing on the board. return iframe url to render
-      parameters:
-      - name: boardUniqueId
-        in: query
-        description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: chatUniqueId
-        in: query
-        description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: userUniqueId
-        in: query
-        description: unqiue id of user
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/embed_connect_body'
       responses:
         "200":
           description: OK
@@ -584,6 +564,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EmebedResponse'
+              examples:
+                boardHome:
+                  value:
+                    boardUniqueId: Hyundai
+                    userUniqueId: masterUserId1234
+                chatRoom:
+                  value:
+                    chatUniqueId: room1234
+                    userUniqueId: masterUserId1234
 components:
   schemas:
     Board:
@@ -729,6 +718,17 @@ components:
         chatUniqueId:
           type: string
           description: unique id of metanium room
+    embed_connect_body:
+      type: object
+      properties:
+        boardUniqueId:
+          type: string
+          description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
+        chatUniqueId:
+          type: string
+          description: "unqiue id of metanium room \n(boardUniqueId or chatUniqueId)\n"
+        userUniqueId:
+          description: unqiue id of user
   requestBodies:
     Board:
       description: A JSON object containing board information
